@@ -47,11 +47,12 @@ public sealed class CommandWrapper
     /// <summary>
     /// Adds a subcommand to the command.
     /// </summary>
-    /// <param name="subCommand">The subcommand to add to the command.</param>
-    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="subCommand"/> added.</returns>
-    public CommandWrapper AddSubCommand(Command subCommand)
+    /// <remarks>Commands can be nested to an arbitrary depth.</remarks>
+    /// <param name="subcommand">The subcommand to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="subcommand"/> added.</returns>
+    public CommandWrapper AddCommand(Command subcommand)
     {
-        (_subcommands ??= new()).Add(subCommand);
+        (_subcommands ??= new()).Add(subcommand);
         return this;
     }
 }
