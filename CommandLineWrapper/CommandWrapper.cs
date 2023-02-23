@@ -19,6 +19,7 @@ public sealed class CommandWrapper
     private List<Command>? _subcommands;
     private List<ValidateSymbolResult<CommandResult>>? _validators;
 
+    public IReadOnlyList<string> Aliases => _aliases is not null ? _aliases : Array.Empty<string>();
     /// <summary>
     /// Represents all of the arguments for the command.
     /// </summary>
