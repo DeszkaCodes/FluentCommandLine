@@ -139,7 +139,7 @@ public sealed class CommandWrapper
     /// </summary>
     /// <param name="alias">The alias to add to the command.</param>
     /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="alias"/> added.</returns>
-    public CommandWrapper Add(string alias) => AddAlias(alias);
+    public CommandWrapper Add(ReadOnlySpan<char> alias) => AddAlias(alias);
     /// <summary>
     /// Adds an <see cref="Argument"/> to the command.
     /// </summary>
