@@ -215,7 +215,10 @@ public sealed class CommandWrapper
     /// Sets a value that indicates whether unmatched tokens should be treated as errors. For example,
     /// if set to <see langword="true"/> and an extra command or argument is provided, validation will fail.
     /// </summary>
-    /// <param name="value">The value to set the field to.</param>
+    /// <param name="value">
+    /// <see langword="true"/> to handle as errors;
+    /// <see langword="false"/> to don't handle.
+    /// </param>
     /// <returns>
     /// The <see cref="CommandWrapper"/> with the
     /// <see cref="TreatUnmatchedTokensAsErrors"/> set to <paramref name="value"/>.
@@ -229,8 +232,10 @@ public sealed class CommandWrapper
     /// <summary>
     /// Sets a value indicating whether the symbol is hidden.
     /// </summary>
-    /// <param name="value"><see langword="true"/> to hide the symbol;
-    /// <see langword="false"/> to show it.</param>
+    /// <param name="value">
+    /// <see langword="true"/> to hide the symbol;
+    /// <see langword="false"/> to show it.
+    /// </param>
     /// <returns>The <see cref="CommandWrapper"/> with <see cref="CommandIsHidden"/> set to true.</returns>
     public CommandWrapper IsHidden(bool value)
     {
