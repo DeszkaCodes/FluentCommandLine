@@ -10,9 +10,14 @@ public sealed class CommandWrapper
     private readonly string _name;
     private string? _description;
 
+    private List<Argument>? _arguments;
     private List<Option>? _options;
     private List<Command>? _subcommands;
 
+    /// <summary>
+    /// Represents all of the arguments for the command.
+    /// </summary>
+    public IReadOnlyList<Argument> Arguments => _arguments is not null ? _arguments : Array.Empty<Argument>();
     /// <summary>
     /// Represents all of the options for the command, including global options that have been applied to any of the command's ancestors.
     /// </summary>
@@ -45,6 +50,17 @@ public sealed class CommandWrapper
     public CommandWrapper SetDescription(string description)
     {
         _description = description;
+        return this;
+    }
+
+    /// <summary>
+    /// Adds an <see cref="Argument"/> to the command.
+    /// </summary>
+    /// <param name="argument">The argument to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the argument added.</returns>
+    public CommandWrapper AddArgument(Argument argument)
+    {
+        (_arguments ??= new()).Add(argument);
         return this;
     }
 
