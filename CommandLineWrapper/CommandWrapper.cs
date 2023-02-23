@@ -20,6 +20,8 @@ public sealed class CommandWrapper
     /// <summary>
     /// Represents all of the subcommands for the command.
     /// </summary>
+    public IReadOnlyList<Command> Subcommands => _subcommands is not null ? _subcommands : Array.Empty<Command>();
+
     private CommandWrapper(string name)
     {
         _name = name;
