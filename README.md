@@ -4,7 +4,7 @@
 ![GitHub](https://img.shields.io/github/license/skydeszka/CommandLineWrapper)
 
 ## Description
-This project came to be a small wrapper for Microsoft's `System.CommandLine` package which is still in preview. The project heavily uses **method-chaining** to lessen the help the readibility of the package.
+This project came to be a small wrapper for Microsoft's `System.CommandLine` package which is still in preview. The project heavily uses **method-chaining** help the readibility of the package.
 
 The project targets .NET 7.0 and is purely written in C#.
 
