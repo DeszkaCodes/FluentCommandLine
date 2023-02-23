@@ -5,7 +5,7 @@ namespace CommandLineWrapper;
 /// <summary>
 /// Wrapper for <see cref="Command"/> that can be converted into <see cref="Command"/>.
 /// </summary>
-internal sealed class CommandWrapper
+public sealed class CommandWrapper
 {
     /// <summary>
     /// Name of the <see cref="Command"/>.
