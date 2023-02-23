@@ -57,6 +57,35 @@ public sealed class CommandWrapper
     {
         return new(name);
     }
+
+    /// <summary>
+    /// Converts the wrapper into a <see cref="Command"/>.
+    /// </summary>
+    /// <returns>The <see cref="Command"/> from the settings of the wrapper.</returns>
+    public Command ToCommand()
+    {
+        Command command = new(_name, _description);
+
+        foreach (string alias in Aliases)
+            command.AddAlias(alias);
+
+        foreach (Argument argument in Arguments)
+            command.AddArgument(argument);
+
+        foreach (Option option in Options)
+            command.AddOption(option);
+
+        foreach (Command subcommand in Subcommands)
+            command.AddCommand(subcommand);
+
+        foreach (ValidateSymbolResult<CommandResult> validator in Validators)
+            command.AddValidator(validator);
+
+        command.TreatUnmatchedTokensAsErrors = _treatUnmatchedTokensAsErrors;
+
+        return command;
+    }
+
     /// <summary>
     /// Sets the description for the command.
     /// </summary>
