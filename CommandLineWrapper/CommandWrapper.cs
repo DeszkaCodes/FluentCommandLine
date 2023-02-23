@@ -114,6 +114,27 @@ public sealed class CommandWrapper
         (_subcommands ??= new()).Add(subcommand);
         return this;
     }
+
+    /// <summary>
+    /// Adds an <see cref="Argument"/> to the command.
+    /// </summary>
+    /// <param name="argument">The argument to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="argument"/> added.</returns>
+    public CommandWrapper Add(Argument argument) => AddArgument(argument);
+    /// <summary>
+    /// Adds an <see cref="Option"/> to the command.
+    /// </summary>
+    /// <param name="option">The option to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="option"/> added.</returns>
+    public CommandWrapper Add(Option option) => AddOption(option);
+    /// <summary>
+    /// Adds a subcommand to the command.
+    /// </summary>
+    /// <param name="subcommand">The subcommand to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="subcommand"/> added.</returns>
+    /// <remarks>Commands can be nested to an arbitrary depth.</remarks>
+    public CommandWrapper Add(Command subcommand) => AddCommand(subcommand);
+
     /// <summary>
     /// Adds a custom validator to the command. Validators can be used
     /// to create custom validation logic.
