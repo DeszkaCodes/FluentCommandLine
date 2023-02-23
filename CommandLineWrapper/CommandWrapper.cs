@@ -16,7 +16,7 @@ public sealed class CommandWrapper
     /// </summary>
     private string? _description;
 
-    private readonly IList<Command> _commands;
+    private readonly IList<Command> _subCommands;
 
     /// <summary>
     /// Initializes a <see langword="new"/> instance of <see cref="CommandWrapper"/> with the given <paramref name="name"/> and <paramref name="description"/>.
@@ -25,7 +25,7 @@ public sealed class CommandWrapper
     private CommandWrapper(string name)
     {
         _name = name;
-        _commands = new List<Command>();
+        _subCommands = new List<Command>();
     }
 
     /// <summary>
