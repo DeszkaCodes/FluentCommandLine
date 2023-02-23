@@ -42,7 +42,7 @@ public sealed class CommandWrapper
     /// </summary>
     /// <param name="name">Name of the command.</param>
     /// <returns>A <see langword="new"/> instance <see cref="CommandWrapper"/> with the given <paramref name="name"/>.</returns>
-    public static CommandWrapper Create(string name)
+    public static CommandWrapper CreateCommand(string name)
         => new(name);
     /// <summary>
     /// Sets the description for the command.
