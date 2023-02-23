@@ -144,7 +144,7 @@ public sealed class CommandWrapper
         string ReflectionFailErrorMessage = $"Couldn't find property named {IsGlobalPropertyName}. Contact the project maintainer or make a pull request with a fix";
 
         Type type = typeof(Option);
-        PropertyInfo? propertyInfo = type.GetProperty(IsGlobalPropertyName, BindingFlags.NonPublic);
+        PropertyInfo? propertyInfo = type.GetProperty(IsGlobalPropertyName, BindingFlags.NonPublic | BindingFlags.Instance);
 
         if (propertyInfo is null)
             throw new ArgumentNullException(ReflectionFailErrorMessage);
