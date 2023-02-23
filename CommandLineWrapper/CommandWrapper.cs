@@ -88,6 +88,7 @@ public sealed class CommandWrapper
             command.AddValidator(validator);
 
         command.TreatUnmatchedTokensAsErrors = _treatUnmatchedTokensAsErrors;
+        command.IsHidden = _isHidden;
 
         return command;
     }
