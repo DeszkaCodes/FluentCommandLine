@@ -13,6 +13,7 @@ public sealed class CommandWrapper
     private string? _description;
     private bool _treatUnmatchedTokensAsErrors = true;
 
+    private List<string>? _aliases;
     private List<Argument>? _arguments;
     private List<Option>? _options;
     private List<Command>? _subcommands;
@@ -60,6 +61,17 @@ public sealed class CommandWrapper
     public CommandWrapper SetDescription(string description)
     {
         _description = description;
+        return this;
+    }
+
+    /// <summary>
+    /// Addns an alias to the command.
+    /// </summary>
+    /// <param name="alias">The alias to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="alias"/> added.</returns>
+    public CommandWrapper AddAlias(ReadOnlySpan<char> alias)
+    {
+        (_aliases ??= new()).Add(alias.ToString());
         return this;
     }
 
@@ -122,6 +134,12 @@ public sealed class CommandWrapper
         return this;
     }
 
+    /// <summary>
+    /// Addns an alias to the command.
+    /// </summary>
+    /// <param name="alias">The alias to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="alias"/> added.</returns>
+    public CommandWrapper Add(string alias) => AddAlias(alias);
     /// <summary>
     /// Adds an <see cref="Argument"/> to the command.
     /// </summary>
