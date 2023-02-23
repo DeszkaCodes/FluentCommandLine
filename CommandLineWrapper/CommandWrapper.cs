@@ -11,6 +11,7 @@ public sealed class CommandWrapper
 {
     private readonly string _name;
     private string? _description;
+    private bool _treatUnmatchedTokensAsErrors = true;
 
     private List<Argument>? _arguments;
     private List<Option>? _options;
@@ -29,6 +30,12 @@ public sealed class CommandWrapper
     /// Represents all of the subcommands for the command.
     /// </summary>
     public IReadOnlyList<Command> Subcommands => _subcommands is not null ? _subcommands : Array.Empty<Command>();
+
+    /// <summary>
+    /// Gets a value that indicates whether unmatched tokens should be treated as errors. For example,
+    /// if set to <see langword="true"/> and an extra command or argument is provided, validation will fail.
+    /// </summary>
+    public bool TreatUnmatchedTokensAsErrors => _treatUnmatchedTokensAsErrors;
 
     private CommandWrapper(string name)
     {
@@ -146,4 +153,20 @@ public sealed class CommandWrapper
         (_validators ??= new()).Add(validate);
         return this;
     }
+
+    /// <summary>
+    /// Sets a value that indicates whether unmatched tokens should be treated as errors. For example,
+    /// if set to <see langword="true"/> and an extra command or argument is provided, validation will fail.
+    /// </summary>
+    /// <param name="value">The value to set the field to.</param>
+    /// <returns>
+    /// The <see cref="CommandWrapper"/> with the
+    /// <see cref="TreatUnmatchedTokensAsErrors"/> set to <paramref name="value"/>.
+    /// </returns>
+    public CommandWrapper SetTreatUnmatchedTokensAsErrors(bool value)
+    {
+        _treatUnmatchedTokensAsErrors = value;
+        return this;
+    }
+
 }
