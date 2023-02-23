@@ -1,4 +1,5 @@
-﻿using System.CommandLine;
+﻿using System.CommandLine.Parsing;
+using System.CommandLine;
 using System.Reflection;
 
 namespace CommandLineWrapper;
@@ -14,6 +15,7 @@ public sealed class CommandWrapper
     private List<Argument>? _arguments;
     private List<Option>? _options;
     private List<Command>? _subcommands;
+    private List<ValidateSymbolResult<CommandResult>>? _validators;
 
     /// <summary>
     /// Represents all of the arguments for the command.
@@ -110,6 +112,17 @@ public sealed class CommandWrapper
     public CommandWrapper AddCommand(Command subcommand)
     {
         (_subcommands ??= new()).Add(subcommand);
+        return this;
+    }
+    /// <summary>
+    /// Adds a custom validator to the command. Validators can be used
+    /// to create custom validation logic.
+    /// </summary>
+    /// <param name="validate">The delegate to validate the symbols during parsing.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the validator added.</returns>
+    public CommandWrapper AddValidator(ValidateSymbolResult<CommandResult> validate)
+    {
+        (_validators ??= new()).Add(validate);
         return this;
     }
 }
