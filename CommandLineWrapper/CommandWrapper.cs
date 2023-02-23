@@ -60,7 +60,7 @@ public sealed class CommandWrapper
     /// Adds an <see cref="Argument"/> to the command.
     /// </summary>
     /// <param name="argument">The argument to add to the command.</param>
-    /// <returns>The <see cref="CommandWrapper"/> with the argument added.</returns>
+    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="argument"/> added.</returns>
     public CommandWrapper AddArgument(Argument argument)
     {
         (_arguments ??= new()).Add(argument);
