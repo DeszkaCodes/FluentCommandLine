@@ -36,7 +36,7 @@ public sealed class CommandWrapper
     /// <summary>
     /// Sets the description for the command.
     /// </summary>
-    /// <param name="description">The description that will be set.</param>
+    /// <param name="description">The text to set as description</param>
     /// <returns>The <see cref="CommandWrapper"/> with its description set.</returns>
     public CommandWrapper SetDescription(string description)
     {
