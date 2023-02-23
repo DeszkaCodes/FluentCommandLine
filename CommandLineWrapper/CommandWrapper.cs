@@ -1,4 +1,5 @@
 ﻿using System.CommandLine;
+using System.Reflection;
 
 namespace CommandLineWrapper;
 
@@ -72,6 +73,31 @@ public sealed class CommandWrapper
     public CommandWrapper AddOption(Option option)
     {
         (_options ??= new()).Add(option);
+        return this;
+    }
+
+    /// <summary>
+    /// Adds a global <see cref="Option"/> to the command.
+    /// </summary>
+    /// <param name="option">The global option to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the global option added.</returns>
+    /// <remarks>Global options are applied to the command and recursively to subcommands. They do not apply to
+    /// parent commands.</remarks>
+    /// <exception cref="ArgumentNullException"></exception>
+    public CommandWrapper AddGlobalOption(Option option)
+    {
+        const string IsGlobalPropertyName = "IsGlobal";
+        string ReflectionFailErrorMessage = $"Couldn't find property named {IsGlobalPropertyName}. Contact the project maintainer or make a pull request with a fix";
+
+        Type type = typeof(Option);
+        PropertyInfo? propertyInfo = type.GetProperty(IsGlobalPropertyName, BindingFlags.NonPublic);
+
+        if (propertyInfo is null)
+            throw new ArgumentNullException(ReflectionFailErrorMessage);
+
+        propertyInfo.SetValue(option, true);
+        AddOption(option);
+
         return this;
     }
 
