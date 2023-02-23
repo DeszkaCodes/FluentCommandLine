@@ -43,7 +43,7 @@ public sealed class CommandWrapper
     /// <summary>
     /// Gets a value indicating whether the symbol is hidden.
     /// </summary>
-    public bool CommandIsHidden => _isHidden;
+    public bool HiddenCommand => _isHidden;
 
     internal IReadOnlyList<ValidateSymbolResult<CommandResult>> Validators
         => _validators is not null ? _validators : Array.Empty<ValidateSymbolResult<CommandResult>>();
