@@ -7,29 +7,19 @@ namespace CommandLineWrapper;
 /// </summary>
 public sealed class CommandWrapper
 {
-    /// <summary>
-    /// Name of the command.
-    /// </summary>
     private readonly string _name;
-    /// <summary>
-    /// Description of the command.
-    /// </summary>
     private string? _description;
 
-    /// <summary>
-    /// List of subcommands.
-    /// </summary>
     private List<Command>? _subcommands;
 
     /// <summary>
-    /// List of subcommands.
+    /// Represents all of the options for the command, including global options that have been applied to any of the command's ancestors.
     /// </summary>
     public IReadOnlyList<Command> Subcommands => _subcommands is not null ? _subcommands : Array.Empty<Command>();
 
     /// <summary>
-    /// Initializes a <see langword="new"/> instance of <see cref="CommandWrapper"/> with the given <paramref name="name"/> and <paramref name="description"/>.
+    /// Represents all of the subcommands for the command.
     /// </summary>
-    /// <param name="name">Name of the command.</param>
     private CommandWrapper(string name)
     {
         _name = name;
