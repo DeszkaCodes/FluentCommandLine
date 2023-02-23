@@ -16,7 +16,15 @@ public sealed class CommandWrapper
     /// </summary>
     private string? _description;
 
-    private readonly IList<Command> _subCommands;
+    /// <summary>
+    /// List of subcommands.
+    /// </summary>
+    private List<Command>? _subcommands;
+
+    /// <summary>
+    /// List of subcommands.
+    /// </summary>
+    public IReadOnlyList<Command> Subcommands => _subcommands is not null ? _subcommands : Array.Empty<Command>();
 
     /// <summary>
     /// Initializes a <see langword="new"/> instance of <see cref="CommandWrapper"/> with the given <paramref name="name"/> and <paramref name="description"/>.
@@ -25,7 +33,7 @@ public sealed class CommandWrapper
     private CommandWrapper(string name)
     {
         _name = name;
-        _subCommands = new List<Command>();
+        _subcommands = new List<Command>();
     }
 
     /// <summary>
@@ -44,6 +52,17 @@ public sealed class CommandWrapper
     public CommandWrapper SetDescription(string description)
     {
         _description = description;
+        return this;
+    }
+
+    /// <summary>
+    /// Adds a subcommand to the command.
+    /// </summary>
+    /// <param name="subCommand">The subcommand to add to the command.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="subCommand"/> added.</returns>
+    public CommandWrapper AddSubCommand(Command subCommand)
+    {
+        (_subcommands ??= new()).Add(subCommand);
         return this;
     }
 }
