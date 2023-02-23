@@ -15,8 +15,6 @@ public sealed class CommandWrapper
     /// <summary>
     /// Represents all of the options for the command, including global options that have been applied to any of the command's ancestors.
     /// </summary>
-    public IReadOnlyList<Command> Subcommands => _subcommands is not null ? _subcommands : Array.Empty<Command>();
-
     /// <summary>
     /// Represents all of the subcommands for the command.
     /// </summary>
