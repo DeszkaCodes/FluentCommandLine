@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.CommandLine;
-using System.CommandLine.Parsing;
+﻿using System.CommandLine;
 
 namespace CommandLineWrapper.UnitTest;
 
@@ -15,7 +13,7 @@ public sealed class CommandWrapperTest
     {
         Command expected = new(CommandName);
 
-        Command actual = CommandWrapper.CreateCommand(CommandName)
+        Command actual = new CommandWrapper(CommandName)
             .ToCommand();
 
         Assert.AreEqual(expected.Name, actual.Name);
@@ -26,7 +24,7 @@ public sealed class CommandWrapperTest
     {
         Command expected = new(CommandName, CommandDescription);
 
-        Command actual = CommandWrapper.CreateCommand(CommandName)
+        Command actual = new CommandWrapper(CommandName)
             .SetDescription(CommandDescription)
             .ToCommand();
 
@@ -42,7 +40,7 @@ public sealed class CommandWrapperTest
 
         Command expectedCommand = new(CommandName);
 
-        CommandWrapper actualCommandWrapper = CommandWrapper.CreateCommand(CommandName);
+        CommandWrapper actualCommandWrapper = new CommandWrapper(CommandName);
 
         foreach (string alias in aliases)
         {
@@ -75,7 +73,7 @@ public sealed class CommandWrapperTest
         }
 
         Command expectedCommand = new(CommandName);
-        CommandWrapper actualCommandWrapper = CommandWrapper.CreateCommand(CommandName);
+        CommandWrapper actualCommandWrapper = new CommandWrapper(CommandName);
 
         foreach(Argument argument in arguments)
         {
@@ -108,7 +106,7 @@ public sealed class CommandWrapperTest
         }
 
         Command expectedCommand = new(CommandName);
-        CommandWrapper actualCommandWrapper = CommandWrapper.CreateCommand(CommandName);
+        CommandWrapper actualCommandWrapper = new CommandWrapper(CommandName);
 
         foreach (Option option in options)
         {
@@ -133,7 +131,7 @@ public sealed class CommandWrapperTest
 
         try
         {
-            Command testCommand = CommandWrapper.CreateCommand(CommandName)
+            Command testCommand = new CommandWrapper(CommandName)
                 .AddGlobalOption(argument)
                 .ToCommand();
         }catch(Exception)
@@ -161,12 +159,12 @@ public sealed class CommandWrapperTest
         expectedCommand.IsHidden = true;
         expectedCommand.TreatUnmatchedTokensAsErrors = false;
 
-        Command actualCommand = CommandWrapper.CreateCommand(CommandName)
+        Command actualCommand = new CommandWrapper(CommandName)
             .SetDescription(CommandDescription)
             .AddAlias(Alias)
             .AddArgument(argument)
             .AddOption(option)
-            .IsHidden(true)
+            .Hidden(true)
             .SetTreatUnmatchedTokensAsErrors(false)
             .ToCommand();
 
