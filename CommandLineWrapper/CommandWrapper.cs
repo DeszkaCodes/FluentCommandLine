@@ -1,4 +1,5 @@
-﻿using System.CommandLine.Parsing;
+﻿using CommandLineWrapper.Abstraction;
+using System.CommandLine.Parsing;
 using System.CommandLine;
 using System.Reflection;
 
@@ -7,12 +8,9 @@ namespace CommandLineWrapper;
 /// <summary>
 /// Wrapper for the <see cref="Command"/> class.
 /// </summary>
-public sealed class CommandWrapper
+public sealed class CommandWrapper : SymbolWrapperBase<Command>
 {
-    private readonly string _name;
-    private string? _description;
     private bool _treatUnmatchedTokensAsErrors = true;
-    private bool _isHidden;
 
     private List<string>? _aliases;
     private List<Argument>? _arguments;
@@ -48,20 +46,14 @@ public sealed class CommandWrapper
     internal IReadOnlyList<ValidateSymbolResult<CommandResult>> Validators
         => _validators is not null ? _validators : Array.Empty<ValidateSymbolResult<CommandResult>>();
 
-    private CommandWrapper(string name)
-    {
-        _name = name;
-    }
-
     /// <summary>
     /// Creates a <see langword="new"/> instance of <see cref="CommandWrapper"/> with the given <paramref name="name"/>
-    /// that can be later converted into <see cref="Command"/>.
     /// </summary>
+    /// that can be later converted into <see cref="Command"/>.
     /// <param name="name">Name of the command.</param>
-    /// <returns>A <see langword="new"/> instance <see cref="CommandWrapper"/> with the given <paramref name="name"/>.</returns>
-    public static CommandWrapper CreateCommand(string name)
+    public CommandWrapper(string name)
+        : base(name)
     {
-        return new(name);
     }
 
     /// <summary>
@@ -238,9 +230,11 @@ public sealed class CommandWrapper
     /// <see langword="false"/> to show it.
     /// </param>
     /// <returns>The <see cref="CommandWrapper"/> with <see cref="CommandIsHidden"/> set to true.</returns>
-    public CommandWrapper IsHidden(bool value)
+    public CommandWrapper Hidden(bool value)
     {
         _isHidden = value;
         return this;
     }
+
+    public override Command ToCorrespondingType() => ToCommand();
 }
