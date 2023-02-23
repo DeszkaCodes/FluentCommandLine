@@ -73,9 +73,9 @@ public sealed class CommandWrapper
     /// </summary>
     /// <param name="alias">The alias to add to the command.</param>
     /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="alias"/> added.</returns>
-    public CommandWrapper AddAlias(ReadOnlySpan<char> alias)
+    public CommandWrapper AddAlias(string alias)
     {
-        (_aliases ??= new()).Add(alias.ToString());
+        (_aliases ??= new()).Add(alias);
         return this;
     }
 
@@ -143,7 +143,7 @@ public sealed class CommandWrapper
     /// </summary>
     /// <param name="alias">The alias to add to the command.</param>
     /// <returns>The <see cref="CommandWrapper"/> with the <paramref name="alias"/> added.</returns>
-    public CommandWrapper Add(ReadOnlySpan<char> alias) => AddAlias(alias);
+    public CommandWrapper Add(string alias) => AddAlias(alias);
     /// <summary>
     /// Adds an <see cref="Argument"/> to the command.
     /// </summary>
