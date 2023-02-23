@@ -12,6 +12,7 @@ public sealed class CommandWrapper
     private readonly string _name;
     private string? _description;
     private bool _treatUnmatchedTokensAsErrors = true;
+    private bool _isHidden;
 
     private List<string>? _aliases;
     private List<Argument>? _arguments;
@@ -38,6 +39,11 @@ public sealed class CommandWrapper
     /// if set to <see langword="true"/> and an extra command or argument is provided, validation will fail.
     /// </summary>
     public bool TreatUnmatchedTokensAsErrors => _treatUnmatchedTokensAsErrors;
+
+    /// <summary>
+    /// Gets a value indicating whether the symbol is hidden.
+    /// </summary>
+    public bool CommandIsHidden => _isHidden;
 
     internal IReadOnlyList<ValidateSymbolResult<CommandResult>> Validators
         => _validators is not null ? _validators : Array.Empty<ValidateSymbolResult<CommandResult>>();
@@ -220,4 +226,15 @@ public sealed class CommandWrapper
         return this;
     }
 
+    /// <summary>
+    /// Sets a value indicating whether the symbol is hidden.
+    /// </summary>
+    /// <param name="value"><see langword="true"/> to hide the symbol;
+    /// <see langword="false"/> to show it.</param>
+    /// <returns>The <see cref="CommandWrapper"/> with <see cref="CommandIsHidden"/> set to true.</returns>
+    public CommandWrapper IsHidden(bool value)
+    {
+        _isHidden = value;
+        return this;
+    }
 }
