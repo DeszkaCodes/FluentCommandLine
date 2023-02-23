@@ -39,6 +39,9 @@ public sealed class CommandWrapper
     /// </summary>
     public bool TreatUnmatchedTokensAsErrors => _treatUnmatchedTokensAsErrors;
 
+    internal IReadOnlyList<ValidateSymbolResult<CommandResult>> Validators
+        => _validators is not null ? _validators : Array.Empty<ValidateSymbolResult<CommandResult>>();
+
     private CommandWrapper(string name)
     {
         _name = name;
