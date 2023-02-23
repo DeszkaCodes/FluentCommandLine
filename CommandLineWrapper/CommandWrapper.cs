@@ -23,7 +23,6 @@ public sealed class CommandWrapper
     private CommandWrapper(string name)
     {
         _name = name;
-        _subcommands = new List<Command>();
     }
 
     /// <summary>
