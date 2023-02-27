@@ -13,7 +13,8 @@ public sealed class CommandWrapperTest
     {
         Command expected = new(CommandName);
 
-        Command actual = new CommandWrapper(CommandName)
+        Command actual = CommandWrapper.Create()
+            .SetName(CommandName)
             .ToCommand();
 
         Assert.AreEqual(expected.Name, actual.Name);
@@ -24,7 +25,8 @@ public sealed class CommandWrapperTest
     {
         Command expected = new(CommandName, CommandDescription);
 
-        Command actual = new CommandWrapper(CommandName)
+        Command actual = CommandWrapper.Create()
+            .SetName(CommandName)
             .SetDescription(CommandDescription)
             .ToCommand();
 
@@ -40,7 +42,8 @@ public sealed class CommandWrapperTest
 
         Command expectedCommand = new(CommandName);
 
-        CommandWrapper actualCommandWrapper = new CommandWrapper(CommandName);
+        CommandWrapper actualCommandWrapper = (CommandWrapper)CommandWrapper.Create()
+            .SetName(CommandName);
 
         foreach (string alias in aliases)
         {
@@ -50,7 +53,7 @@ public sealed class CommandWrapperTest
 
         Command actualCommand = actualCommandWrapper.ToCommand();
 
-        bool actual = expectedCommand.Aliases.SequenceEqual(actualCommand.Aliases);
+        bool actual = expectedCommand.Aliases.HaveSameElements(actualCommand.Aliases);
 
         Assert.AreEqual(Expected, actual);
     }
@@ -73,7 +76,8 @@ public sealed class CommandWrapperTest
         }
 
         Command expectedCommand = new(CommandName);
-        CommandWrapper actualCommandWrapper = new CommandWrapper(CommandName);
+        CommandWrapper actualCommandWrapper = (CommandWrapper)CommandWrapper.Create()
+            .SetName(CommandName);
 
         foreach(Argument argument in arguments)
         {
@@ -83,7 +87,7 @@ public sealed class CommandWrapperTest
 
         Command actualCommand = actualCommandWrapper.ToCommand();
 
-        bool actual = expectedCommand.Arguments.SequenceEqual(actualCommand.Arguments);
+        bool actual = expectedCommand.Arguments.HaveSameElements(actualCommand.Arguments);
 
         Assert.AreEqual(Expected, actual);
     }
@@ -106,7 +110,8 @@ public sealed class CommandWrapperTest
         }
 
         Command expectedCommand = new(CommandName);
-        CommandWrapper actualCommandWrapper = new CommandWrapper(CommandName);
+        CommandWrapper actualCommandWrapper = (CommandWrapper)CommandWrapper.Create()
+            .SetName(CommandName);
 
         foreach (Option option in options)
         {
@@ -116,30 +121,9 @@ public sealed class CommandWrapperTest
 
         Command actualCommand = actualCommandWrapper.ToCommand();
 
-        bool actual = expectedCommand.Options.SequenceEqual(actualCommand.Options);
+        bool actual = expectedCommand.Options.HaveSameElements(actualCommand.Options);
 
         Assert.AreEqual(Expected, actual);
-    }
-
-    [TestMethod]
-    public void TestAddGlobalOptionMethodForNoException()
-    {
-        const string ArgumentName = "TestArgument";
-        bool hasException = false;
-
-        Option<bool> argument = new(name: ArgumentName);
-
-        try
-        {
-            Command testCommand = new CommandWrapper(CommandName)
-                .AddGlobalOption(argument)
-                .ToCommand();
-        }catch(Exception)
-        {
-            hasException = true;
-        }
-
-        Assert.IsFalse(hasException);
     }
 
     [TestMethod]
@@ -159,18 +143,19 @@ public sealed class CommandWrapperTest
         expectedCommand.IsHidden = true;
         expectedCommand.TreatUnmatchedTokensAsErrors = false;
 
-        Command actualCommand = new CommandWrapper(CommandName)
+        Command actualCommand = CommandWrapper.Create()
+            .SetName(CommandName)
             .SetDescription(CommandDescription)
             .AddAlias(Alias)
             .AddArgument(argument)
             .AddOption(option)
-            .Hidden(true)
-            .SetTreatUnmatchedTokensAsErrors(false)
+            .SetHidden(true)
+            .DoTreatUnmatchedTokensAsErrors(false)
             .ToCommand();
 
-        bool doAliasesMatch = actualCommand.Aliases.SequenceEqual(expectedCommand.Aliases);
-        bool doArgumentsMatch = actualCommand.Arguments.SequenceEqual(expectedCommand.Arguments);
-        bool doOptionsMatch = actualCommand.Options.SequenceEqual(expectedCommand.Options);
+        bool doAliasesMatch = actualCommand.Aliases.HaveSameElements(expectedCommand.Aliases);
+        bool doArgumentsMatch = actualCommand.Arguments.HaveSameElements(expectedCommand.Arguments);
+        bool doOptionsMatch = actualCommand.Options.HaveSameElements(expectedCommand.Options);
 
         Assert.AreEqual(expectedCommand.Name, actualCommand.Name);
         Assert.AreEqual(expectedCommand.Description, actualCommand.Description);
