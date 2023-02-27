@@ -10,5 +10,8 @@ The project targets .NET 7.0 and is purely written in C#.
 
 The project is still **unfinished** so I'm unable to share much more information.
 
+## Currently supported version
+`2.0.0-beta4.22272.1`
+
 ## License
 This project is licensed under the terms of the <a href="https://github.com/skydeszka/CommandLineWrapper/blob/main/LICENSE">GPL-3.0</a> license.
