@@ -1,6 +1,7 @@
 # Command Line Wrapper
 ![Contributors](https://img.shields.io/github/contributors/skydeszka/CommandLineWrapper)
 ![GitHub issues](https://img.shields.io/github/issues/skydeszka/CommandLineWrapper)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/skydeszka/CommandLineWrapper/build-and-test.yml)
 ![GitHub](https://img.shields.io/github/license/skydeszka/CommandLineWrapper)
 
 ## Description
