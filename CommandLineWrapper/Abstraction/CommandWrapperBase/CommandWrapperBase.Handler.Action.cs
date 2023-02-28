@@ -26,7 +26,7 @@ public abstract partial class CommandWrapperBase<T> : IdentifierSymbolWrapperBas
     }
 
     /// <inheritdoc/>
-    public virtual ICommandBaseCanSetProperties SetHandler<T>(Action<T> handle, IValueDescriptor<T> symbol)
+    public virtual ICommandBaseCanSetProperties SetHandler<T1>(Action<T1> handle, IValueDescriptor<T1> symbol)
     {
         _command.SetHandler(handle, symbol);
         return this;
