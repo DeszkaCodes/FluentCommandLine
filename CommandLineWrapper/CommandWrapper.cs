@@ -4,10 +4,13 @@ using System.CommandLine;
 
 namespace CommandLineWrapper;
 
+/// <summary>
+/// Wrapper for <see cref="Command"/> that uses fluent APIs.
+/// </summary>
 public sealed class CommandWrapper : CommandWrapperBase<Command>,
     ICommandCanSetName, ICommandCanSetProperties
 {
-    const string DefaultCommandName = "unknown";
+    private const string DefaultCommandName = "unknown";
 
     private CommandWrapper()
         : base(new Command(DefaultCommandName))

@@ -28,7 +28,7 @@ public partial interface IRootCommandCanSetProperties : ICommandBaseCanSetProper
     new IRootCommandCanSetProperties AddOption(Option option);
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the added global <paramref name="option"/>.</returns>
-    /// <inheritdoc cref="Command.AddGlobalOption(Option)(Option)"/>
+    /// <inheritdoc cref="Command.AddGlobalOption(Option)"/>
     new IRootCommandCanSetProperties AddGlobalOption(Option option);
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the added <paramref name="command"/>.</returns>

@@ -4,6 +4,9 @@ using System.CommandLine;
 
 namespace CommandLineWrapper;
 
+/// <summary>
+/// Wrapper for <see cref="RootCommand"/> that uses fluent APIs.
+/// </summary>
 public sealed class RootCommandWrapper : CommandWrapperBase<RootCommand>,
     IRootCommandCanSetProperties
 {

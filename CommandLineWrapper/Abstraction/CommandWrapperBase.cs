@@ -10,9 +10,10 @@ public abstract class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
     ICommandBaseCanSetName, ICommandBaseCanSetProperties
     where T : Command
 {
-    protected readonly T _command;
+    private protected readonly T _command;
 
-    protected CommandWrapperBase(T command)
+
+    private protected CommandWrapperBase(T command)
     {
         _command = command;
     }
