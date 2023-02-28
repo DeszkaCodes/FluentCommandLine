@@ -2,6 +2,9 @@
 
 namespace CommandLineWrapper.Abstraction.Interfaces;
 
+// TODO: Add AddValidator method
+// TODO: Add SetHandler methods
+
 /// <summary>
 /// Defines fluent methods responsible for setting the properties of a <see cref="Command"/>.
 /// </summary>
