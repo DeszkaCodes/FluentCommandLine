@@ -4,15 +4,12 @@ using System.CommandLine;
 
 namespace CommandLineWrapper;
 
-public sealed class RootCommandWrapper : CommandWrapperBase,
+public sealed class RootCommandWrapper : CommandWrapperBase<RootCommand>,
     IRootCommandCanSetProperties
 {
-    private new readonly RootCommand _command;
-
     private RootCommandWrapper()
-        : base(RootCommand.ExecutableName)
+        : base(new RootCommand(RootCommand.ExecutableName))
     {
-        _command= new RootCommand(RootCommand.ExecutableName);
     }
 
     /// <summary>
