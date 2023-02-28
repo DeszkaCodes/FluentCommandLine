@@ -1,13 +1,15 @@
 ﻿using CommandLineWrapper.Abstraction;
 using CommandLineWrapper.Abstraction.Interfaces;
 using System.CommandLine;
+using System.CommandLine.Binding;
+using System.CommandLine.Invocation;
 
 namespace CommandLineWrapper;
 
 /// <summary>
 /// Wrapper for <see cref="Command"/> that uses fluent APIs.
 /// </summary>
-public sealed class CommandWrapper : CommandWrapperBase<Command>,
+public sealed partial class CommandWrapper : CommandWrapperBase<Command>,
     ICommandCanSetName, ICommandCanSetProperties
 {
     private const string DefaultCommandName = "unknown";
