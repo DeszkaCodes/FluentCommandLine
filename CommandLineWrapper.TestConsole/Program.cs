@@ -7,7 +7,7 @@ Command subcommand = CommandWrapper.Create()
     .SetName("subtest")
     .AddAlias("subcommandtest")
     .SetDescription("This is a subcommand test.")
-    .ToCommand();
+    .GetCommand();
 
 rootCommand.AddCommand(subcommand);
 
