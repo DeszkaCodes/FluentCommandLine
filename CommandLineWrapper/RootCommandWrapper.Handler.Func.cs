@@ -6,10 +6,7 @@ using System.CommandLine.Invocation;
 
 namespace CommandLineWrapper;
 
-/// <summary>
-/// Wrapper for <see cref="RootCommand"/> that uses fluent APIs.
-/// </summary>
-public sealed partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
+partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
     IRootCommandCanSetProperties
 {
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
