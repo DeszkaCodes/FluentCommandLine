@@ -7,7 +7,7 @@ namespace CommandLineWrapper;
 /// <summary>
 /// Wrapper for <see cref="RootCommand"/> that uses fluent APIs.
 /// </summary>
-public sealed class RootCommandWrapper : CommandWrapperBase<RootCommand>,
+public sealed partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
     IRootCommandCanSetProperties
 {
     private RootCommandWrapper()
