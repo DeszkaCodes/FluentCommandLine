@@ -1,5 +1,7 @@
 ﻿using CommandLineWrapper.Abstraction.Interfaces;
+using System.Collections;
 using System.CommandLine;
+using System.CommandLine.Completions;
 
 namespace CommandLineWrapper.Abstraction;
 
@@ -12,11 +14,28 @@ public abstract class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
 {
     private protected readonly T _command;
 
-
     private protected CommandWrapperBase(T command)
     {
         _command = command;
     }
+
+    /// <inheritdoc cref="Command.Children"/>
+    public IEnumerable<Symbol> Children => _command.Children;
+
+    /// <inheritdoc cref="Command.Arguments"/>
+    public IReadOnlyList<Argument> Arguments => _command.Arguments;
+
+    /// <inheritdoc cref="Command.Options"/>
+    public IReadOnlyList<Option> Options => _command.Options;
+
+    /// <inheritdoc cref="Command.Subcommands"/>
+    public IReadOnlyList<Command> Subcommands => _command.Subcommands;
+
+    /// <inheritdoc cref="Command.GetEnumerator"/>
+    public IEnumerator GetEnumerator() => _command.GetEnumerator();
+
+    /// <inheritdoc cref="Command.GetCompletions(CompletionContext)"/>
+    public IEnumerable<CompletionItem> GetCompletions(CompletionContext context) => _command.GetCompletions(context);
 
     /// <inheritdoc cref="ICommandBaseCanSetName.SetName(string)"/>
     public override ICommandBaseCanSetProperties SetName(string name)
