@@ -15,7 +15,7 @@ public sealed class CommandWrapperTest
 
         Command actual = CommandWrapper.Create()
             .SetName(CommandName)
-            .ToCommand();
+            .GetCommand();
 
         Assert.AreEqual(expected.Name, actual.Name);
     }
@@ -28,7 +28,7 @@ public sealed class CommandWrapperTest
         Command actual = CommandWrapper.Create()
             .SetName(CommandName)
             .SetDescription(CommandDescription)
-            .ToCommand();
+            .GetCommand();
 
         Assert.AreEqual(expected.Description, actual.Description);
     }
@@ -51,7 +51,7 @@ public sealed class CommandWrapperTest
             actualCommandWrapper.AddAlias(alias);
         }
 
-        Command actualCommand = actualCommandWrapper.ToCommand();
+        Command actualCommand = actualCommandWrapper.GetCommand();
 
         bool actual = expectedCommand.Aliases.HaveSameElements(actualCommand.Aliases);
 
@@ -85,7 +85,7 @@ public sealed class CommandWrapperTest
             actualCommandWrapper.AddArgument(argument);
         }
 
-        Command actualCommand = actualCommandWrapper.ToCommand();
+        Command actualCommand = actualCommandWrapper.GetCommand();
 
         bool actual = expectedCommand.Arguments.HaveSameElements(actualCommand.Arguments);
 
@@ -119,7 +119,7 @@ public sealed class CommandWrapperTest
             actualCommandWrapper.AddOption(option);
         }
 
-        Command actualCommand = actualCommandWrapper.ToCommand();
+        Command actualCommand = actualCommandWrapper.GetCommand();
 
         bool actual = expectedCommand.Options.HaveSameElements(actualCommand.Options);
 
@@ -127,7 +127,7 @@ public sealed class CommandWrapperTest
     }
 
     [TestMethod]
-    public void TestToCommand()
+    public void TestToCommand() 
     {
         const string Alias = "TestAlias",
             ArgumentName = "TestArgument",
@@ -151,7 +151,7 @@ public sealed class CommandWrapperTest
             .AddOption(option)
             .SetHidden(true)
             .DoTreatUnmatchedTokensAsErrors(false)
-            .ToCommand();
+            .GetCommand();
 
         bool doAliasesMatch = actualCommand.Aliases.HaveSameElements(expectedCommand.Aliases);
         bool doArgumentsMatch = actualCommand.Arguments.HaveSameElements(expectedCommand.Arguments);
