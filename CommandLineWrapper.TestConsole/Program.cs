@@ -1,14 +1,16 @@
 ﻿using CommandLineWrapper;
 using System.CommandLine;
 
-RootCommand rootCommand = new("This is a test command.");
-
 Command subcommand = CommandWrapper.Create()
     .SetName("subtest")
     .AddAlias("subcommandtest")
     .SetDescription("This is a subcommand test.")
     .GetCommand();
 
-rootCommand.AddCommand(subcommand);
+RootCommand rootCommand = RootCommandWrapper.Create()
+    .SetDescription("This is a test command.")
+    .AddAlias("tc")
+    .AddCommand(subcommand)
+    .GetRootCommand();
 
 await rootCommand.InvokeAsync(args);
