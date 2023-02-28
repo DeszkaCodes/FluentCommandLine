@@ -5,9 +5,6 @@ using System.CommandLine.Invocation;
 
 namespace CommandLineWrapper.Abstraction;
 
-/// <summary>
-/// Defines a base for a <see cref="Command"/> wrapper.
-/// </summary>
 public abstract partial class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
     ICommandBaseCanSetName, ICommandBaseCanSetProperties
 {
