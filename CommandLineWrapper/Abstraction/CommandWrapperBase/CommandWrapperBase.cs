@@ -1,14 +1,16 @@
 ﻿using CommandLineWrapper.Abstraction.Interfaces;
 using System.Collections;
 using System.CommandLine;
+using System.CommandLine.Binding;
 using System.CommandLine.Completions;
+using System.CommandLine.Invocation;
 
 namespace CommandLineWrapper.Abstraction;
 
 /// <summary>
 /// Defines a base for a <see cref="Command"/> wrapper.
 /// </summary>
-public abstract class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
+public abstract partial class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
     ICommandBaseCanSetName, ICommandBaseCanSetProperties
     where T : Command
 {
