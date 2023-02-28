@@ -7,13 +7,11 @@ namespace CommandLineWrapper;
 public sealed class CommandWrapper : CommandWrapperBase,
     ICommandCanSetName, ICommandCanSetProperties
 {
-    private readonly Command _command;
+    const string DefaultCommandName = "DefaultCommandName";
 
     private CommandWrapper()
+        : base(DefaultCommandName)
     {
-        const string DefaultCommandName = "DefaultCommandName";
-
-        _command = new Command(DefaultCommandName);
     }
 
     /// <summary>
@@ -28,66 +26,66 @@ public sealed class CommandWrapper : CommandWrapperBase,
         return _command;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandCanSetProperties.AddAlias(string)" />
     public override ICommandCanSetProperties AddAlias(string alias)
     {
-        _command.AddAlias(alias);
+        base.AddAlias(alias);
         return this;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="Command.AddArgument(Argument)" />
     public override ICommandCanSetProperties AddArgument(Argument argument)
     {
-        _command.AddArgument(argument);
+        base.AddArgument(argument);
         return this;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandCanSetProperties.AddCommand(Command)" />
     public override ICommandCanSetProperties AddCommand(Command command)
     {
-        _command.AddCommand(command);
+        base.AddCommand(command);
         return this;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandCanSetProperties.AddGlobalOption(Option)" />
     public override ICommandCanSetProperties AddGlobalOption(Option option)
     {
-        _command.AddGlobalOption(option);
+        base.AddGlobalOption(option);
         return this;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandCanSetProperties.AddOption(Option)" />
     public override ICommandCanSetProperties AddOption(Option option)
     {
-        _command.AddOption(option);
+        base.AddOption(option);
         return this;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandCanSetProperties.DoTreatUnmatchedTokensAsErrors(bool)" />
     public override ICommandCanSetProperties DoTreatUnmatchedTokensAsErrors(bool treatUnmatchedTokensAsErrors)
     {
-        _command.TreatUnmatchedTokensAsErrors = treatUnmatchedTokensAsErrors;
+        base.DoTreatUnmatchedTokensAsErrors(treatUnmatchedTokensAsErrors);
         return this;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandCanSetProperties.SetHidden(bool)" />
     public override ICommandCanSetProperties SetHidden(bool isHidden)
     {
-        _command.IsHidden = isHidden;
+        base.SetHidden(isHidden);
         return this;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandCanSetName.SetName(string)" />
     public override ICommandCanSetProperties SetName(string name)
     {
-        _command.Name = name;
+        base.SetName(name);
         return this;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandCanSetProperties.SetDescription(string)" />
     public override ICommandCanSetProperties SetDescription(string description)
     {
-        _command.Description = description;
+        base.SetDescription(description);
         return this;
     }
 }

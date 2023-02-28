@@ -9,30 +9,73 @@ namespace CommandLineWrapper.Abstraction;
 public abstract class CommandWrapperBase : IdentifierSymbolWrapperBase,
     ICommandBaseCanSetName, ICommandBaseCanSetProperties
 {
+    protected readonly Command _command;
+
+    protected CommandWrapperBase(string name)
+    {
+        _command = new Command(name);
+    }
+
     /// <inheritdoc cref="ICommandBaseCanSetName.SetName(string)"/>
-    public override abstract ICommandBaseCanSetProperties SetName(string name);
+    public override ICommandBaseCanSetProperties SetName(string name)
+    {
+        _command.Name = name;
+        return this;
+    }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.SetDescription(string)"/>
-    public override abstract ICommandBaseCanSetProperties SetDescription(string description);
+    public override  ICommandBaseCanSetProperties SetDescription(string description)
+    {
+        _command.Description = description;
+        return this;
+    }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.AddAlias(string)"/>
-    public override abstract ICommandBaseCanSetProperties AddAlias(string alias);
+    public override  ICommandBaseCanSetProperties AddAlias(string alias)
+    {
+        _command.AddAlias(alias);
+        return this;
+    }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.SetHidden(bool)"/>
-    public override abstract ICommandBaseCanSetProperties SetHidden(bool isHidden);
+    public override  ICommandBaseCanSetProperties SetHidden(bool isHidden)
+    {
+        _command.IsHidden = isHidden;
+        return this;
+    }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.AddArgument(Argument)"/>
-    public abstract ICommandBaseCanSetProperties AddArgument(Argument argument);
+    public virtual ICommandBaseCanSetProperties AddArgument(Argument argument)
+    {
+        _command.AddArgument(argument);
+        return this;
+    }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.AddOption(Option)"/>
-    public abstract ICommandBaseCanSetProperties AddOption(Option option);
+    public virtual ICommandBaseCanSetProperties AddOption(Option option)
+    {
+        _command.AddOption(option);
+        return this;
+    }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.AddGlobalOption(Option)"/>
-    public abstract ICommandBaseCanSetProperties AddGlobalOption(Option option);
+    public virtual ICommandBaseCanSetProperties AddGlobalOption(Option option)
+    {
+        _command.AddGlobalOption(option);
+        return this;
+    }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.AddCommand(Command)"/>
-    public abstract ICommandBaseCanSetProperties AddCommand(Command subcommand);
+    public virtual ICommandBaseCanSetProperties AddCommand(Command command)
+    {
+        _command.AddCommand(command);
+        return this;
+    }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.DoTreatUnmatchedTokensAsErrors(bool)"/>
-    public abstract ICommandBaseCanSetProperties DoTreatUnmatchedTokensAsErrors(bool treatUnmatchedTokensAsErrors);
+    public virtual ICommandBaseCanSetProperties DoTreatUnmatchedTokensAsErrors(bool treatUnmatchedTokensAsErrors)
+    {
+        _command.TreatUnmatchedTokensAsErrors = treatUnmatchedTokensAsErrors;
+        return this;
+    }
 }
