@@ -4,13 +4,13 @@ using System.CommandLine;
 
 namespace CommandLineWrapper;
 
-public sealed class CommandWrapper : CommandWrapperBase,
+public sealed class CommandWrapper : CommandWrapperBase<Command>,
     ICommandCanSetName, ICommandCanSetProperties
 {
-    const string DefaultCommandName = "DefaultCommandName";
+    const string DefaultCommandName = "unknown";
 
     private CommandWrapper()
-        : base(DefaultCommandName)
+        : base(new Command(DefaultCommandName))
     {
     }
 

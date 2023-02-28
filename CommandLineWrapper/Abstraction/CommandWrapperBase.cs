@@ -6,14 +6,15 @@ namespace CommandLineWrapper.Abstraction;
 /// <summary>
 /// Defines a base for a <see cref="Command"/> wrapper.
 /// </summary>
-public abstract class CommandWrapperBase : IdentifierSymbolWrapperBase,
+public abstract class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
     ICommandBaseCanSetName, ICommandBaseCanSetProperties
+    where T : Command
 {
-    protected readonly Command _command;
+    protected readonly T _command;
 
-    protected CommandWrapperBase(string name)
+    protected CommandWrapperBase(T command)
     {
-        _command = new Command(name);
+        _command = command;
     }
 
     /// <inheritdoc cref="ICommandBaseCanSetName.SetName(string)"/>
