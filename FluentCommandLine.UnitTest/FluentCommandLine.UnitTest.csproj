@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommandLineWrapper\CommandLineWrapper.csproj" />
+    <ProjectReference Include="..\FluentCommandLine\FluentCommandLine.csproj" />
   </ItemGroup>
 
 </Project>

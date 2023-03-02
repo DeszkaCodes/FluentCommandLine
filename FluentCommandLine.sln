@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandLineWrapper", "CommandLineWrapper\CommandLineWrapper.csproj", "{628233D9-8D07-40A5-B05A-5A547C0D328F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentCommandLine", "FluentCommandLine\FluentCommandLine.csproj", "{628233D9-8D07-40A5-B05A-5A547C0D328F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandLineWrapper.TestConsole", "CommandLineWrapper.TestConsole\CommandLineWrapper.TestConsole.csproj", "{E176C459-2E24-4BBD-BA79-540442D38DA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentCommandLine.TestConsole", "FluentCommandLine.TestConsole\FluentCommandLine.TestConsole.csproj", "{E176C459-2E24-4BBD-BA79-540442D38DA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLineWrapper.UnitTest", "CommandLineWrapper.UnitTest\CommandLineWrapper.UnitTest.csproj", "{69C645C9-FA13-4E6C-9DBE-7D5BCCC1FC8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentCommandLine.UnitTest", "FluentCommandLine.UnitTest\FluentCommandLine.UnitTest.csproj", "{69C645C9-FA13-4E6C-9DBE-7D5BCCC1FC8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
