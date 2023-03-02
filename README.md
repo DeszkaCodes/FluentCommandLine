@@ -15,4 +15,4 @@ The project is still **unfinished** so I'm unable to share much more information
 `2.0.0-beta4.22272.1`
 
 ## License
-This project is licensed under the terms of the <a href="https://github.com/skydeszka/FluentCommandLine/blob/main/LICENSE">GPL-3.0</a> license.
+This project is licensed under the terms of the <a href="https://github.com/skydeszka/FluentCommandLine/blob/main/LICENSE">MIT</a> license.
