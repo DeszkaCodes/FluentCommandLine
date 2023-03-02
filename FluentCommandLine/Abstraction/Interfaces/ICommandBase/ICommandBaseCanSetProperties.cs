@@ -1,6 +1,6 @@
 ﻿using System.CommandLine;
 
-namespace CommandLineWrapper.Abstraction.Interfaces;
+namespace FluentCommandLine.Abstraction.Interfaces;
 
 // TODO: Add AddValidator method
 // TODO: Add SetHandler methods

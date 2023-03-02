@@ -1,9 +1,9 @@
-﻿using CommandLineWrapper.Abstraction.Interfaces;
+﻿using FluentCommandLine.Abstraction.Interfaces;
 using System.CommandLine;
 using System.CommandLine.Binding;
 using System.CommandLine.Invocation;
 
-namespace CommandLineWrapper.Abstraction;
+namespace FluentCommandLine.Abstraction;
 
 public abstract partial class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
     ICommandBaseCanSetName, ICommandBaseCanSetProperties

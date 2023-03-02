@@ -1,6 +1,6 @@
-﻿using CommandLineWrapper.Abstraction.Interfaces;
+﻿using FluentCommandLine.Abstraction.Interfaces;
 
-namespace CommandLineWrapper.Abstraction;
+namespace FluentCommandLine.Abstraction;
 
 /// <summary>
 /// Defines a base for an <see cref="System.CommandLine.IdentifierSymbol"/> wrapper.

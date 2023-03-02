@@ -1,4 +1,4 @@
-﻿using CommandLineWrapper;
+﻿using FluentCommandLine;
 using System.CommandLine;
 
 Command subcommand = CommandWrapper.Create()

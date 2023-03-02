@@ -1,4 +1,4 @@
-﻿namespace CommandLineWrapper.Abstraction.Interfaces;
+﻿namespace FluentCommandLine.Abstraction.Interfaces;
 
 /// <summary>
 /// Defines a fluent method responsible for setting the name of a <see cref="System.CommandLine.IdentifierSymbol"/>.

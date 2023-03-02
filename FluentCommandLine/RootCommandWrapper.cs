@@ -1,8 +1,8 @@
-﻿using CommandLineWrapper.Abstraction;
-using CommandLineWrapper.Abstraction.Interfaces;
+﻿using FluentCommandLine.Abstraction;
+using FluentCommandLine.Abstraction.Interfaces;
 using System.CommandLine;
 
-namespace CommandLineWrapper;
+namespace FluentCommandLine;
 
 /// <summary>
 /// Wrapper for <see cref="RootCommand"/> that uses fluent APIs.

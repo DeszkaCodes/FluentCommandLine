@@ -1,11 +1,11 @@
-﻿using CommandLineWrapper.Abstraction.Interfaces;
+﻿using FluentCommandLine.Abstraction.Interfaces;
 using System.Collections;
 using System.CommandLine;
 using System.CommandLine.Binding;
 using System.CommandLine.Completions;
 using System.CommandLine.Invocation;
 
-namespace CommandLineWrapper.Abstraction;
+namespace FluentCommandLine.Abstraction;
 
 /// <summary>
 /// Defines a base for a <see cref="Command"/> wrapper.

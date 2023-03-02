@@ -1,10 +1,10 @@
-﻿using CommandLineWrapper.Abstraction;
-using CommandLineWrapper.Abstraction.Interfaces;
+﻿using FluentCommandLine.Abstraction;
+using FluentCommandLine.Abstraction.Interfaces;
 using System.CommandLine;
 using System.CommandLine.Binding;
 using System.CommandLine.Invocation;
 
-namespace CommandLineWrapper;
+namespace FluentCommandLine;
 
 partial class CommandWrapper : CommandWrapperBase<Command>,
     ICommandCanSetName, ICommandCanSetProperties

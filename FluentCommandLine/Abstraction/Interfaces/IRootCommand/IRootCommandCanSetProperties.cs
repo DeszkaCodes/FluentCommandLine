@@ -1,6 +1,6 @@
 ﻿using System.CommandLine;
 
-namespace CommandLineWrapper.Abstraction.Interfaces;
+namespace FluentCommandLine.Abstraction.Interfaces;
 
 /// <summary>
 /// Defines fluent methods responsible for setting the properties of a <see cref="RootCommand"/>.

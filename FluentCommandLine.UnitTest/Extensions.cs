@@ -1,4 +1,4 @@
-﻿namespace CommandLineWrapper.UnitTest;
+﻿namespace FluentCommandLine.UnitTest;
 
 internal static class Extensions
 {

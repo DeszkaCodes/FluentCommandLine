@@ -1,6 +1,6 @@
 ﻿using System.CommandLine;
 
-namespace CommandLineWrapper.UnitTest;
+namespace FluentCommandLine.UnitTest;
 
 [TestClass]
 public sealed class CommandWrapperTest
