@@ -24,6 +24,9 @@ public abstract partial class CommandWrapperBase<T> : IdentifierSymbolWrapperBas
     /// <inheritdoc cref="Command.Children"/>
     public IEnumerable<Symbol> Children => _command.Children;
 
+    /// <inheritdoc cref="IdentifierSymbol.Aliases" />
+    public IReadOnlyCollection<string> Aliases => _command.Aliases;
+
     /// <inheritdoc cref="Command.Arguments"/>
     public IReadOnlyList<Argument> Arguments => _command.Arguments;
 
