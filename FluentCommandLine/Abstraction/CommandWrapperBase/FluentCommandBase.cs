@@ -10,13 +10,13 @@ namespace FluentCommandLine.Abstraction;
 /// <summary>
 /// Defines a base for a <see cref="Command"/> wrapper.
 /// </summary>
-public abstract partial class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
+public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase,
     ICommandBaseCanSetName, ICommandBaseCanSetProperties
     where T : Command
 {
     private protected readonly T _command;
 
-    private protected CommandWrapperBase(T command)
+    private protected FluentCommandBase(T command)
     {
         _command = command;
     }

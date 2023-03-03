@@ -9,21 +9,21 @@ namespace FluentCommandLine;
 /// <summary>
 /// Wrapper for <see cref="Command"/> that uses fluent APIs.
 /// </summary>
-public sealed partial class CommandWrapper : CommandWrapperBase<Command>,
+public sealed partial class FluentCommand : FluentCommandBase<Command>,
     ICommandCanSetName, ICommandCanSetProperties
 {
     private const string DefaultCommandName = "unknown";
 
-    private CommandWrapper()
+    private FluentCommand()
         : base(new Command(DefaultCommandName))
     {
     }
 
     /// <summary>
-    /// Creates a new instance of <see cref="CommandWrapper"/>.
+    /// Creates a new instance of <see cref="FluentCommand"/>.
     /// </summary>
     /// <returns>The new instance as <see cref="ICommandCanSetName"/>.</returns>
-    public static ICommandCanSetName Create() => new CommandWrapper();
+    public static ICommandCanSetName Create() => new FluentCommand();
 
     /// <inheritdoc />
     public Command GetCommand()

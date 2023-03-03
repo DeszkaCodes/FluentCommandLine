@@ -5,7 +5,7 @@ using System.CommandLine.Invocation;
 
 namespace FluentCommandLine.Abstraction;
 
-public abstract partial class CommandWrapperBase<T> : IdentifierSymbolWrapperBase,
+public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase,
     ICommandBaseCanSetName, ICommandBaseCanSetProperties
 {
     /// <inheritdoc/>

@@ -6,12 +6,12 @@ using System.CommandLine.Invocation;
 
 namespace FluentCommandLine;
 
-partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
+partial class FluentRootCommand : FluentCommandBase<RootCommand>,
     IRootCommandCanSetProperties
 {
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler(Action<InvocationContext> handle)
+    public override IRootCommandCanSetProperties SetHandler(Func<Task> handle)
     {
         base.SetHandler(handle);
         return this;
@@ -19,7 +19,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler(Action handle)
+    public override IRootCommandCanSetProperties SetHandler(Func<InvocationContext, Task> handle)
     {
         base.SetHandler(handle);
         return this;
@@ -27,7 +27,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler<T>(Action<T> handle, IValueDescriptor<T> symbol)
+    public override IRootCommandCanSetProperties SetHandler<T>(Func<T, Task> handle, IValueDescriptor<T> symbol)
     {
         base.SetHandler(handle, symbol);
         return this;
@@ -35,7 +35,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler<T1, T2>(Action<T1, T2> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2)
+    public override IRootCommandCanSetProperties SetHandler<T1, T2>(Func<T1, T2, Task> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2)
     {
         base.SetHandler(handle,
             symbol1,
@@ -45,7 +45,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3>(Action<T1, T2, T3> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3)
+    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3>(Func<T1, T2, T3, Task> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3)
     {
         base.SetHandler(handle,
             symbol1,
@@ -56,7 +56,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4>(Action<T1, T2, T3, T4> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4)
+    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4>(Func<T1, T2, T3, T4, Task> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4)
     {
         base.SetHandler(handle,
             symbol1,
@@ -68,7 +68,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4, T5>(Action<T1, T2, T3, T4, T5> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5)
+    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4, T5>(Func<T1, T2, T3, T4, T5, Task> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5)
     {
         base.SetHandler(handle,
             symbol1,
@@ -81,7 +81,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6>(Action<T1, T2, T3, T4, T5, T6> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6)
+    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6>(Func<T1, T2, T3, T4, T5, T6, Task> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6)
     {
         base.SetHandler(handle,
             symbol1,
@@ -95,7 +95,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6, T7>(Action<T1, T2, T3, T4, T5, T6, T7> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6, IValueDescriptor<T7> symbol7)
+    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6, T7>(Func<T1, T2, T3, T4, T5, T6, T7, Task> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6, IValueDescriptor<T7> symbol7)
     {
         base.SetHandler(handle,
             symbol1,
@@ -110,7 +110,7 @@ partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6, T7, T8>(Action<T1, T2, T3, T4, T5, T6, T7, T8> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6, IValueDescriptor<T7> symbol7, IValueDescriptor<T8> symbol8)
+    public override IRootCommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6, T7, T8>(Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6, IValueDescriptor<T7> symbol7, IValueDescriptor<T8> symbol8)
     {
         base.SetHandler(handle,
             symbol1,

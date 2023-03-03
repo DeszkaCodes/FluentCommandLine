@@ -7,19 +7,19 @@ namespace FluentCommandLine;
 /// <summary>
 /// Wrapper for <see cref="RootCommand"/> that uses fluent APIs.
 /// </summary>
-public sealed partial class RootCommandWrapper : CommandWrapperBase<RootCommand>,
+public sealed partial class FluentRootCommand : FluentCommandBase<RootCommand>,
     IRootCommandCanSetProperties
 {
-    private RootCommandWrapper()
+    private FluentRootCommand()
         : base(new RootCommand(RootCommand.ExecutableName))
     {
     }
 
     /// <summary>
-    /// Creates a new instance of <see cref="RootCommandWrapper"/>.
+    /// Creates a new instance of <see cref="FluentRootCommand"/>.
     /// </summary>
     /// <returns>The new instance as <see cref="IRootCommandCanSetProperties"/>.</returns>
-    public static IRootCommandCanSetProperties Create() => new RootCommandWrapper();
+    public static IRootCommandCanSetProperties Create() => new FluentRootCommand();
 
     /// <inheritdoc />
     public RootCommand GetRootCommand()

@@ -5,7 +5,7 @@ namespace FluentCommandLine.Abstraction;
 /// <summary>
 /// Defines a base for an <see cref="System.CommandLine.IdentifierSymbol"/> wrapper.
 /// </summary>
-public abstract class IdentifierSymbolWrapperBase : SymbolWrapperBase,
+public abstract class FluentIdentifierSymbolBase : FluentSymbolBase,
     IIdentifierSymbolCanSetName, IIdentifierSymbolCanSetProperties
 {
     /// <inheritdoc cref="IIdentifierSymbolCanSetName.SetName(string)"/>
