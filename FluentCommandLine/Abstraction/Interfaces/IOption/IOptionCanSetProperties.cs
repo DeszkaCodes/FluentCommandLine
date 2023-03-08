@@ -1,5 +1,5 @@
-﻿using System.CommandLine;
-using System.CommandLine.Parsing;
+﻿using System.CommandLine.Parsing;
+using System.CommandLine;
 
 namespace FluentCommandLine.Abstraction.Interfaces;
 

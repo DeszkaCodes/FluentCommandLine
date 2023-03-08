@@ -1,6 +1,6 @@
-﻿using System.CommandLine;
+﻿using System.CommandLine.Invocation;
 using System.CommandLine.Binding;
-using System.CommandLine.Invocation;
+using System.CommandLine;
 
 namespace FluentCommandLine.Abstraction.Interfaces;
 

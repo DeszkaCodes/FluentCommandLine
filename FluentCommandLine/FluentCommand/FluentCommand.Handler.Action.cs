@@ -1,8 +1,8 @@
-﻿using FluentCommandLine.Abstraction;
-using FluentCommandLine.Abstraction.Interfaces;
-using System.CommandLine;
-using System.CommandLine.Binding;
+﻿using FluentCommandLine.Abstraction.Interfaces;
+using FluentCommandLine.Abstraction;
 using System.CommandLine.Invocation;
+using System.CommandLine.Binding;
+using System.CommandLine;
 
 namespace FluentCommandLine;
 
