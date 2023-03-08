@@ -82,4 +82,11 @@ public sealed partial class FluentRootCommand : FluentCommandBase<RootCommand>,
         base.SetHidden(isHidden);
         return this;
     }
+
+    /// <inheritdoc cref="IRootCommandCanSetProperties.SetHandlerForHelp()"/>
+    public override IRootCommandCanSetProperties SetHandlerForHelp()
+    {
+        base.SetHandlerForHelp();
+        return this;
+    }
 }
