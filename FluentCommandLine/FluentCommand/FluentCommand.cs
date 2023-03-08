@@ -91,4 +91,11 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
         base.SetDescription(description);
         return this;
     }
+
+    /// <inheritdoc cref="ICommandCanSetProperties.SetHandlerForHelp()"/>
+    public override ICommandCanSetProperties SetHandlerForHelp()
+    {
+        base.SetHandlerForHelp();
+        return this;
+    }
 }
