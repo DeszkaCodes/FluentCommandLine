@@ -35,13 +35,13 @@ public partial interface IRootCommandCanSetProperties : ICommandBaseCanSetProper
     /// <inheritdoc cref="Command.AddCommand(Command)"/>
     new IRootCommandCanSetProperties AddCommand(Command command);
 
-    /// <summary>
-    /// Sets a value that indicates whether unmatched tokens should be treated as errors. For example,
-    /// if set to <see langword="true"/> and an extra command or argument is provided, validation will fail.
-    /// </summary>
-    /// <param name="treatUnmatchedTokensAsErrors">The value that indicates whether unmatched tokens should be treated as errors</param>
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new value.</returns>
+    /// <inheritdoc cref="ICommandBaseCanSetProperties.DoTreatUnmatchedTokensAsErrors(bool)"/>
     new IRootCommandCanSetProperties DoTreatUnmatchedTokensAsErrors(bool treatUnmatchedTokensAsErrors);
+
+    /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
+    /// <inheritdoc cref="ICommandBaseCanSetProperties.SetHandlerForHelp()" />
+    new IRootCommandCanSetProperties SetHandlerForHelp();
 
     /// <summary>
     /// Gets the <see cref="RootCommand"/> created by the wrapper.
