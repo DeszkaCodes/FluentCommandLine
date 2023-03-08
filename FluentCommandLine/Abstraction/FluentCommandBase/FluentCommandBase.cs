@@ -102,4 +102,13 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase,
         _command.TreatUnmatchedTokensAsErrors = treatUnmatchedTokensAsErrors;
         return this;
     }
+
+    /// <inheritdoc />
+    public virtual ICommandBaseCanSetProperties SetHandlerForHelp()
+    {
+        Action callHelp = () => _command.Invoke("--help");
+
+        _command.SetHandler(callHelp);
+        return this;
+    }
 }
