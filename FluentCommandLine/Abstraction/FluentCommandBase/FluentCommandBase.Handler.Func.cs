@@ -6,7 +6,7 @@ using System.CommandLine;
 namespace FluentCommandLine.Abstraction;
 
 public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<T>,
-    ICommandBaseCanSetName, ICommandBaseCanSetProperties
+    ICommandBaseHasToSetName, ICommandBaseCanSetProperties
 {
     /// <inheritdoc/>
     public virtual ICommandBaseCanSetProperties SetHandler(Func<Task> handle)

@@ -7,7 +7,7 @@ using System.CommandLine;
 namespace FluentCommandLine;
 
 partial class FluentCommand : FluentCommandBase<Command>,
-    ICommandCanSetName, ICommandCanSetProperties
+    ICommandHasToSetName, ICommandCanSetProperties
 {
     /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc/>

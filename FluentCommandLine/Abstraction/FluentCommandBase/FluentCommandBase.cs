@@ -10,7 +10,7 @@ namespace FluentCommandLine.Abstraction;
 /// </summary>
 /// <typeparam name="T">The <see cref="Type"/> that inherits <see cref="Command"/>.</typeparam>
 public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<T>,
-    ICommandBaseCanSetName, ICommandBaseCanSetProperties
+    ICommandBaseHasToSetName, ICommandBaseCanSetProperties
     where T : Command
 {
     private protected FluentCommandBase(T command)
@@ -39,7 +39,7 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
     /// <inheritdoc cref="Command.GetCompletions(CompletionContext)"/>
     public IEnumerable<CompletionItem> GetCompletions(CompletionContext context) => _wrapped.GetCompletions(context);
 
-    /// <inheritdoc cref="ICommandBaseCanSetName.SetName(string)"/>
+    /// <inheritdoc cref="ICommandBaseHasToSetName.SetName(string)"/>
     public override ICommandBaseCanSetProperties SetName(string name)
     {
         base.SetName(name);

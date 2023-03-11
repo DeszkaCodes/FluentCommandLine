@@ -8,7 +8,7 @@ namespace FluentCommandLine.Abstraction;
 /// </summary>
 /// <typeparam name="T">The <see cref="Type"/> that inherits <see cref="IdentifierSymbol"/>.</typeparam>
 public abstract class FluentIdentifierSymbolBase<T> : FluentSymbolBase<T>,
-    IIdentifierSymbolCanSetName, IIdentifierSymbolCanSetProperties
+    IIdentifierSymbolHasToSetName, IIdentifierSymbolCanSetProperties
     where T : IdentifierSymbol
 {
     private protected FluentIdentifierSymbolBase(T identifierSymbol)
@@ -16,7 +16,7 @@ public abstract class FluentIdentifierSymbolBase<T> : FluentSymbolBase<T>,
     {
     }
 
-    /// <inheritdoc cref="IIdentifierSymbolCanSetName.SetName(string)"/>
+    /// <inheritdoc cref="IIdentifierSymbolHasToSetName.SetName(string)"/>
     public override IIdentifierSymbolCanSetProperties SetName(string name)
     {
         base.SetName(name);

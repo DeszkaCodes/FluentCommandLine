@@ -3,7 +3,7 @@
 /// <summary>
 /// Defines a fluent method responsible for setting the name of a <see cref="System.CommandLine.Symbol"/>.
 /// </summary>
-public interface ISymbolCanSetName
+public interface ISymbolHasToSetName
 {
     /// <summary>
     /// Sets the name of the symbol.

@@ -8,7 +8,7 @@ namespace FluentCommandLine;
 /// Wrapper for <see cref="Command"/> that uses fluent APIs.
 /// </summary>
 public sealed partial class FluentCommand : FluentCommandBase<Command>,
-    ICommandCanSetName, ICommandCanSetProperties
+    ICommandHasToSetName, ICommandCanSetProperties
 {
     private FluentCommand()
         : base(null!)
@@ -18,8 +18,8 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
     /// <summary>
     /// Creates a new instance of <see cref="FluentCommand"/>.
     /// </summary>
-    /// <returns>The new instance as <see cref="ICommandCanSetName"/>.</returns>
-    public static ICommandCanSetName Create() => new FluentCommand();
+    /// <returns>The new instance as <see cref="ICommandHasToSetName"/>.</returns>
+    public static ICommandHasToSetName Create() => new FluentCommand();
 
     /// <inheritdoc />
     public Command GetCommand()
@@ -76,7 +76,7 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <inheritdoc cref="ICommandCanSetName.SetName(string)" />
+    /// <inheritdoc cref="ICommandHasToSetName.SetName(string)" />
     public override ICommandCanSetProperties SetName(string name)
     {
         base.SetName(name);

@@ -4,10 +4,10 @@
 /// Defines fluent methods for setting the name of an <see cref="System.CommandLine.Option{T}"/>
 /// </summary>
 /// <typeparam name="T">The <see cref="System.Type"/> that the option's arguments are expected to be parsed as.</typeparam>
-public interface IOptionHasToSetName<T> : IIdentifierSymbolCanSetName
+public interface IOptionHasToSetName<T> : IIdentifierSymbolHasToSetName
 {
     /// <returns>An <see cref="IOptionCanSetProperties{T}"/> with the given name.</returns>
-    /// <inheritdoc cref="IIdentifierSymbolCanSetName.SetName(string)"/>
+    /// <inheritdoc cref="IIdentifierSymbolHasToSetName.SetName(string)"/>
     new IOptionCanSetProperties<T> SetName(string name);
 
     /// <summary>

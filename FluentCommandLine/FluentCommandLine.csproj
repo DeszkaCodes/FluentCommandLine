@@ -13,4 +13,12 @@
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="D:\0_FONTOS\1_PROGRAMMING\1_Projects\0_CS\CommandLineWrapper\FluentCommandLine\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\0_FONTOS\1_PROGRAMMING\1_Projects\0_CS\CommandLineWrapper\FluentCommandLine\.editorconfig" />
+  </ItemGroup>
+
 </Project>

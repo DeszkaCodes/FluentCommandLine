@@ -7,7 +7,7 @@ namespace FluentCommandLine.Abstraction;
 /// Defines a base for a <see cref="Symbol"/> wrapper.
 /// </summary>
 /// <typeparam name="T">The <see cref="Type"/> that inherits <see cref="Symbol"/>.</typeparam>
-public abstract class FluentSymbolBase<T> : ISymbolCanSetName, ISymbolCanSetProperties
+public abstract class FluentSymbolBase<T> : ISymbolHasToSetName, ISymbolCanSetProperties
     where T : Symbol
 {
     /// <summary>

@@ -3,9 +3,9 @@
 /// <summary>
 /// Defines a fluent method responsible for setting the name of a <see cref="System.CommandLine.Command"/>.
 /// </summary>
-public interface ICommandBaseCanSetName : IIdentifierSymbolCanSetName
+public interface ICommandBaseHasToSetName : IIdentifierSymbolHasToSetName
 {
     /// <returns>An <see cref="ICommandBaseCanSetProperties"/> with the given name.</returns>
-    /// <inheritdoc cref="IIdentifierSymbolCanSetName.SetName(string)"/>
+    /// <inheritdoc cref="IIdentifierSymbolHasToSetName.SetName(string)"/>
     new ICommandBaseCanSetProperties SetName(string name);
 }
