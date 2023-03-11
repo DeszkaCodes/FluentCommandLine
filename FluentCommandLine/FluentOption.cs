@@ -36,6 +36,7 @@ public sealed class FluentOption<T> : FluentIdentifierSymbolBase<Option>,
         public ConstructorData(ParseArgument<T> parseArgument, bool isDefault)
             : this(ConstructorType.AddParseArgument)
         {
+            ParseArgument = parseArgument;
             ParseArgumentIsDefault = isDefault;
         }
 
