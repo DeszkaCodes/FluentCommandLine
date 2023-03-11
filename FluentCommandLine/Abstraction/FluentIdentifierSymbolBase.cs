@@ -1,4 +1,5 @@
 ﻿using FluentCommandLine.Abstraction.Interfaces;
+using System.CommandLine;
 
 namespace FluentCommandLine.Abstraction;
 
@@ -16,14 +17,30 @@ public abstract class FluentIdentifierSymbolBase<T> : FluentSymbolBase<T>,
     }
 
     /// <inheritdoc cref="IIdentifierSymbolCanSetName.SetName(string)"/>
-    public override abstract IIdentifierSymbolCanSetProperties SetName(string name);
+    public override IIdentifierSymbolCanSetProperties SetName(string name)
+    {
+        base.SetName(name);
+        return this;
+    }
 
     /// <inheritdoc cref="IIdentifierSymbolCanSetProperties.SetDescription(string)"/>
-    public override abstract IIdentifierSymbolCanSetProperties SetDescription(string description);
-
-    /// <inheritdoc cref="IIdentifierSymbolCanSetProperties.AddAlias(string)"/>
-    public abstract IIdentifierSymbolCanSetProperties AddAlias(string alias);
+    public override IIdentifierSymbolCanSetProperties SetDescription(string description)
+    {
+        base.SetDescription(description);
+        return this;
+    }
 
     /// <inheritdoc cref="IIdentifierSymbolCanSetProperties.SetHidden(bool)"/>
-    public override abstract IIdentifierSymbolCanSetProperties SetHidden(bool isHidden);
+    public override IIdentifierSymbolCanSetProperties SetHidden(bool isHidden)
+    {
+        base.SetHidden(isHidden);
+        return this;
+    }
+
+    /// <inheritdoc cref="IIdentifierSymbolCanSetProperties.AddAlias(string)"/>
+    public virtual IIdentifierSymbolCanSetProperties AddAlias(string alias)
+    {
+        _wrapped.AddAlias(alias);
+        return this;
+    }
 }
