@@ -13,7 +13,7 @@ public abstract class FluentSymbolBase<T> : ISymbolCanSetName, ISymbolCanSetProp
     /// <summary>
     /// The generic type that is being wrapped.
     /// </summary>
-    internal protected readonly T _wrapped;
+    internal protected T _wrapped;
 
     private protected FluentSymbolBase(T wrapped)
     {
