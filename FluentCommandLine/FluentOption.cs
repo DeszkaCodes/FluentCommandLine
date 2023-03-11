@@ -9,7 +9,7 @@ namespace FluentCommandLine;
 /// Wrapper for <see cref="Option{T}"/> that uses fluent APIs.
 /// </summary>
 /// <typeparam name="T">The <see cref="Type"/> that the option's arguments are expected to be parsed as.</typeparam>
-public sealed class FluentOption<T> : FluentIdentifierSymbolBase<Option>,
+public sealed class FluentOption<T> : FluentIdentifierSymbolBase<Option<T>>,
     IOptionHasToSetArgument<T>, IOptionHasToSetName<T>, IOptionCanSetProperties<T>
 {
     private readonly struct ConstructorData
@@ -74,7 +74,7 @@ public sealed class FluentOption<T> : FluentIdentifierSymbolBase<Option>,
     public static IOptionHasToSetArgument<T> Create() => new FluentOption<T>();
 
     /// <inheritdoc/>
-    public Option<T> GetOption() => (Option<T>)_wrapped;
+    public Option<T> GetOption() => _wrapped;
 
     ///<inheritdoc />
     public IOptionHasToSetName<T> AddDefaultValue(Func<T> getDefaultValue)
