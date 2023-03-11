@@ -5,11 +5,11 @@
 /// </summary>
 public partial interface ICommandHasToSetHandler : ICommandBaseHasToSetHandler
 {
-    /// <returns>An <see cref="IRootCommandCanSetProperties"/> with no handler.</returns>
+    /// <returns>An <see cref="ICommandCanSetProperties"/> with no handler.</returns>
     /// <inheritdoc cref="ICommandBaseHasToSetHandler.NoHandler()"/>
-    new ICommandCanSetProperties NoHandler();
+    new ICommandHasToSetName NoHandler();
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc cref="ICommandBaseHasToSetHandler.SetHandlerInvokeSelfHelp()" />
-    new ICommandCanSetProperties SetHandlerInvokeSelfHelp();
+    new ICommandHasToSetName SetHandlerInvokeSelfHelp();
 }

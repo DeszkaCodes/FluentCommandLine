@@ -8,7 +8,7 @@ namespace FluentCommandLine;
 /// Wrapper for <see cref="RootCommand"/> that uses fluent APIs.
 /// </summary>
 public sealed partial class FluentRootCommand : FluentCommandBase<RootCommand>,
-    IRootCommandHasToSetHandler, IRootCommandCanSetProperties
+    IRootCommandHasToSetHandler, IRootCommandHasToSetName, IRootCommandCanSetProperties
 {
     private FluentRootCommand()
         : base(new RootCommand(RootCommand.ExecutableName))
@@ -18,7 +18,7 @@ public sealed partial class FluentRootCommand : FluentCommandBase<RootCommand>,
     /// <summary>
     /// Creates a new instance of <see cref="FluentRootCommand"/>.
     /// </summary>
-    /// <returns>The new instance as <see cref="IRootCommandCanSetProperties"/>.</returns>
+    /// <returns>The new instance as <see cref="IRootCommandHasToSetHandler"/>.</returns>
     public static IRootCommandHasToSetHandler Create() => new FluentRootCommand();
 
     /// <inheritdoc />
@@ -83,17 +83,30 @@ public sealed partial class FluentRootCommand : FluentCommandBase<RootCommand>,
         return this;
     }
 
-    /// <inheritdoc cref="IRootCommandCanSetProperties.SetHandlerInvokeSelfHelp()"/>
-    public override IRootCommandCanSetProperties SetHandlerInvokeSelfHelp()
+    /// <inheritdoc cref="IRootCommandHasToSetHandler.SetHandlerInvokeSelfHelp()"/>
+    public override IRootCommandHasToSetName SetHandlerInvokeSelfHelp()
     {
         base.SetHandlerInvokeSelfHelp();
         return this;
     }
 
     /// <inheritdoc cref="IRootCommandHasToSetHandler.NoHandler()" />
-    public override IRootCommandCanSetProperties NoHandler()
+    public override IRootCommandHasToSetName NoHandler()
     {
         base.NoHandler();
+        return this;
+    }
+
+    /// <inheritdoc cref="IRootCommandHasToSetName.SetName(string)"/>
+    public override IRootCommandCanSetProperties SetName(string name)
+    {
+        base.SetName(name);
+        return this;
+    }
+
+    /// <inheritdoc cref="IRootCommandHasToSetName.UseExecutableName()" />
+    public IRootCommandCanSetProperties UseExecutableName()
+    {
         return this;
     }
 }

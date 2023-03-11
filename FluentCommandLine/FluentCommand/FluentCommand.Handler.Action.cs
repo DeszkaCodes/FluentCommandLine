@@ -7,35 +7,35 @@ using System.CommandLine;
 namespace FluentCommandLine;
 
 partial class FluentCommand : FluentCommandBase<Command>,
-    ICommandHasToSetName, ICommandCanSetProperties
+    ICommandHasToSetHandler, ICommandHasToSetName, ICommandCanSetProperties
 {
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler(Action<InvocationContext> handle)
+    public override ICommandHasToSetName SetHandler(Action<InvocationContext> handle)
     {
         base.SetHandler(handle);
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler(Action handle)
+    public override ICommandHasToSetName SetHandler(Action handle)
     {
         base.SetHandler(handle);
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler<T>(Action<T> handle, IValueDescriptor<T> symbol)
+    public override ICommandHasToSetName SetHandler<T>(Action<T> handle, IValueDescriptor<T> symbol)
     {
         base.SetHandler(handle, symbol);
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler<T1, T2>(Action<T1, T2> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2)
+    public override ICommandHasToSetName SetHandler<T1, T2>(Action<T1, T2> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2)
     {
         base.SetHandler(handle,
             symbol1,
@@ -43,9 +43,9 @@ partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler<T1, T2, T3>(Action<T1, T2, T3> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3)
+    public override ICommandHasToSetName SetHandler<T1, T2, T3>(Action<T1, T2, T3> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3)
     {
         base.SetHandler(handle,
             symbol1,
@@ -54,9 +54,9 @@ partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler<T1, T2, T3, T4>(Action<T1, T2, T3, T4> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4)
+    public override ICommandHasToSetName SetHandler<T1, T2, T3, T4>(Action<T1, T2, T3, T4> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4)
     {
         base.SetHandler(handle,
             symbol1,
@@ -66,9 +66,9 @@ partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler<T1, T2, T3, T4, T5>(Action<T1, T2, T3, T4, T5> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5)
+    public override ICommandHasToSetName SetHandler<T1, T2, T3, T4, T5>(Action<T1, T2, T3, T4, T5> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5)
     {
         base.SetHandler(handle,
             symbol1,
@@ -79,9 +79,9 @@ partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6>(Action<T1, T2, T3, T4, T5, T6> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6)
+    public override ICommandHasToSetName SetHandler<T1, T2, T3, T4, T5, T6>(Action<T1, T2, T3, T4, T5, T6> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6)
     {
         base.SetHandler(handle,
             symbol1,
@@ -93,9 +93,9 @@ partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6, T7>(Action<T1, T2, T3, T4, T5, T6, T7> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6, IValueDescriptor<T7> symbol7)
+    public override ICommandHasToSetName SetHandler<T1, T2, T3, T4, T5, T6, T7>(Action<T1, T2, T3, T4, T5, T6, T7> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6, IValueDescriptor<T7> symbol7)
     {
         base.SetHandler(handle,
             symbol1,
@@ -108,9 +108,9 @@ partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <returns>An <see cref="ICommandHasToSetName"/> with the new handler.</returns>
     /// <inheritdoc/>
-    public override ICommandCanSetProperties SetHandler<T1, T2, T3, T4, T5, T6, T7, T8>(Action<T1, T2, T3, T4, T5, T6, T7, T8> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6, IValueDescriptor<T7> symbol7, IValueDescriptor<T8> symbol8)
+    public override ICommandHasToSetName SetHandler<T1, T2, T3, T4, T5, T6, T7, T8>(Action<T1, T2, T3, T4, T5, T6, T7, T8> handle, IValueDescriptor<T1> symbol1, IValueDescriptor<T2> symbol2, IValueDescriptor<T3> symbol3, IValueDescriptor<T4> symbol4, IValueDescriptor<T5> symbol5, IValueDescriptor<T6> symbol6, IValueDescriptor<T7> symbol7, IValueDescriptor<T8> symbol8)
     {
         base.SetHandler(handle,
             symbol1,

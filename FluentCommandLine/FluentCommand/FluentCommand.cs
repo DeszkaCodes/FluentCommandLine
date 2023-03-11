@@ -18,8 +18,8 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
     /// <summary>
     /// Creates a new instance of <see cref="FluentCommand"/>.
     /// </summary>
-    /// <returns>The new instance as <see cref="ICommandHasToSetName"/>.</returns>
-    public static ICommandHasToSetName Create() => new FluentCommand();
+    /// <returns>The new instance as <see cref="ICommandHasToSetHandler"/>.</returns>
+    public static ICommandHasToSetHandler Create() => new FluentCommand();
 
     /// <inheritdoc />
     public Command GetCommand()
@@ -90,15 +90,15 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <inheritdoc cref="ICommandCanSetProperties.SetHandlerInvokeSelfHelp()"/>
-    public override ICommandCanSetProperties SetHandlerInvokeSelfHelp()
+    /// <inheritdoc cref="ICommandHasToSetHandler.SetHandlerInvokeSelfHelp()"/>
+    public override ICommandHasToSetName SetHandlerInvokeSelfHelp()
     {
         base.SetHandlerInvokeSelfHelp();
         return this;
     }
 
     /// <inheritdoc cref="ICommandHasToSetHandler.NoHandler()" />
-    public override ICommandCanSetProperties NoHandler()
+    public override ICommandHasToSetName NoHandler()
     {
         base.NoHandler();
         return this;

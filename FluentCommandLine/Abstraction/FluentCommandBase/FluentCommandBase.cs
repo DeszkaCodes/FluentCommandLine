@@ -103,7 +103,7 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
     }
 
     /// <inheritdoc />
-    public virtual ICommandBaseCanSetProperties SetHandlerInvokeSelfHelp()
+    public virtual ICommandBaseHasToSetName SetHandlerInvokeSelfHelp()
     {
         Action callHelp = () => _wrapped.Invoke("--help");
 
@@ -112,7 +112,7 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
     }
 
     /// <inheritdoc />
-    public virtual ICommandBaseCanSetProperties NoHandler()
+    public virtual ICommandBaseHasToSetName NoHandler()
     {
         _wrapped.Handler = null;
         return this;
