@@ -10,8 +10,10 @@ namespace FluentCommandLine;
 public sealed partial class FluentCommand : FluentCommandBase<Command>,
     ICommandHasToSetHandler, ICommandHasToSetName, ICommandCanSetProperties
 {
+    private const string DefaultCommandName = "Unknown";
+
     private FluentCommand()
-        : base(null!)
+        : base(new Command(DefaultCommandName))
     {
     }
 
