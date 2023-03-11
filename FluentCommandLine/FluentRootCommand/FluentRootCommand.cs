@@ -8,7 +8,7 @@ namespace FluentCommandLine;
 /// Wrapper for <see cref="RootCommand"/> that uses fluent APIs.
 /// </summary>
 public sealed partial class FluentRootCommand : FluentCommandBase<RootCommand>,
-    IRootCommandCanSetProperties
+    IRootCommandHasToSetHandler, IRootCommandCanSetProperties
 {
     private FluentRootCommand()
         : base(new RootCommand(RootCommand.ExecutableName))
@@ -19,7 +19,7 @@ public sealed partial class FluentRootCommand : FluentCommandBase<RootCommand>,
     /// Creates a new instance of <see cref="FluentRootCommand"/>.
     /// </summary>
     /// <returns>The new instance as <see cref="IRootCommandCanSetProperties"/>.</returns>
-    public static IRootCommandCanSetProperties Create() => new FluentRootCommand();
+    public static IRootCommandHasToSetHandler Create() => new FluentRootCommand();
 
     /// <inheritdoc />
     public RootCommand GetRootCommand()
@@ -87,6 +87,13 @@ public sealed partial class FluentRootCommand : FluentCommandBase<RootCommand>,
     public override IRootCommandCanSetProperties SetHandlerInvokeSelfHelp()
     {
         base.SetHandlerInvokeSelfHelp();
+        return this;
+    }
+
+    /// <inheritdoc cref="IRootCommandHasToSetHandler.NoHandler()" />
+    public override IRootCommandCanSetProperties NoHandler()
+    {
+        base.NoHandler();
         return this;
     }
 }

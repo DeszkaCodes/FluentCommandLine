@@ -8,7 +8,7 @@ namespace FluentCommandLine;
 /// Wrapper for <see cref="Command"/> that uses fluent APIs.
 /// </summary>
 public sealed partial class FluentCommand : FluentCommandBase<Command>,
-    ICommandHasToSetName, ICommandCanSetProperties
+    ICommandHasToSetHandler, ICommandHasToSetName, ICommandCanSetProperties
 {
     private FluentCommand()
         : base(null!)
@@ -94,6 +94,13 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
     public override ICommandCanSetProperties SetHandlerInvokeSelfHelp()
     {
         base.SetHandlerInvokeSelfHelp();
+        return this;
+    }
+
+    /// <inheritdoc cref="ICommandHasToSetHandler.NoHandler()" />
+    public override ICommandCanSetProperties NoHandler()
+    {
+        base.NoHandler();
         return this;
     }
 }

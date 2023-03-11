@@ -10,7 +10,7 @@ namespace FluentCommandLine.Abstraction;
 /// </summary>
 /// <typeparam name="T">The <see cref="Type"/> that inherits <see cref="Command"/>.</typeparam>
 public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<T>,
-    ICommandBaseHasToSetName, ICommandBaseCanSetProperties
+    ICommandBaseHasToSetHandler, ICommandBaseHasToSetName, ICommandBaseCanSetProperties
     where T : Command
 {
     private protected FluentCommandBase(T command)
@@ -108,6 +108,13 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
         Action callHelp = () => _wrapped.Invoke("--help");
 
         _wrapped.SetHandler(callHelp);
+        return this;
+    }
+
+    /// <inheritdoc />
+    public virtual ICommandBaseCanSetProperties NoHandler()
+    {
+        _wrapped.Handler = null;
         return this;
     }
 }
