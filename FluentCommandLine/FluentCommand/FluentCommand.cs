@@ -26,7 +26,7 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
     /// <inheritdoc />
     public Command GetCommand()
     {
-        return _command;
+        return _wrapped;
     }
 
     /// <inheritdoc cref="ICommandCanSetProperties.AddAlias(string)" />
@@ -92,10 +92,10 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
         return this;
     }
 
-    /// <inheritdoc cref="ICommandCanSetProperties.SetHandlerForHelp()"/>
-    public override ICommandCanSetProperties SetHandlerForHelp()
+    /// <inheritdoc cref="ICommandCanSetProperties.SetHandlerInvokeSelfHelp()"/>
+    public override ICommandCanSetProperties SetHandlerInvokeSelfHelp()
     {
-        base.SetHandlerForHelp();
+        base.SetHandlerInvokeSelfHelp();
         return this;
     }
 }

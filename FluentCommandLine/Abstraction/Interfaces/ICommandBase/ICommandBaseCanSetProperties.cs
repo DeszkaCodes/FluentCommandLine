@@ -42,7 +42,7 @@ public partial interface ICommandBaseCanSetProperties : IIdentifierSymbolCanSetP
     /// Sets the handler of the command to invoke the <c>--help</c> switch.
     /// </summary>
     /// <returns>An <see cref="ICommandBaseCanSetProperties"/> with the new handler.</returns>
-    ICommandBaseCanSetProperties SetHandlerForHelp();
+    ICommandBaseCanSetProperties SetHandlerInvokeSelfHelp();
 
     /// <summary>
     /// Sets a value that indicates whether unmatched tokens should be treated as errors. For example,

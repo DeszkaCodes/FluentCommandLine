@@ -40,8 +40,8 @@ public partial interface IRootCommandCanSetProperties : ICommandBaseCanSetProper
     new IRootCommandCanSetProperties DoTreatUnmatchedTokensAsErrors(bool treatUnmatchedTokensAsErrors);
 
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new handler.</returns>
-    /// <inheritdoc cref="ICommandBaseCanSetProperties.SetHandlerForHelp()" />
-    new IRootCommandCanSetProperties SetHandlerForHelp();
+    /// <inheritdoc cref="ICommandBaseCanSetProperties.SetHandlerInvokeSelfHelp()" />
+    new IRootCommandCanSetProperties SetHandlerInvokeSelfHelp();
 
     /// <summary>
     /// Gets the <see cref="RootCommand"/> created by the wrapper.

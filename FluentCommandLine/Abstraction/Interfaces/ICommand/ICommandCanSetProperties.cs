@@ -40,8 +40,8 @@ public partial interface ICommandCanSetProperties : ICommandBaseCanSetProperties
     new ICommandCanSetProperties DoTreatUnmatchedTokensAsErrors(bool treatUnmatchedTokensAsErrors);
 
     /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
-    /// <inheritdoc cref="ICommandBaseCanSetProperties.SetHandlerForHelp()" />
-    new ICommandCanSetProperties SetHandlerForHelp();
+    /// <inheritdoc cref="ICommandBaseCanSetProperties.SetHandlerInvokeSelfHelp()" />
+    new ICommandCanSetProperties SetHandlerInvokeSelfHelp();
 
     /// <summary>
     /// Gets the <see cref="Command"/> created by the wrapper.
