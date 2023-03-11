@@ -1,4 +1,5 @@
 ﻿using System.CommandLine;
+using System.CommandLine.Parsing;
 
 namespace FluentCommandLine.Abstraction.Interfaces;
 
@@ -38,6 +39,10 @@ public partial interface ICommandCanSetProperties : ICommandBaseCanSetProperties
     /// <returns>An <see cref="ICommandCanSetProperties"/> with the new value.</returns>
     /// <inheritdoc cref="ICommandBaseCanSetProperties.DoTreatUnmatchedTokensAsErrors(bool)"/>
     new ICommandCanSetProperties DoTreatUnmatchedTokensAsErrors(bool treatUnmatchedTokensAsErrors);
+
+    /// <returns>An <see cref="ICommandCanSetProperties"/> with the added validator.</returns>
+    /// <inheritdoc cref="Command.AddValidator(ValidateSymbolResult{CommandResult})"/>
+    new ICommandCanSetProperties AddValidator(ValidateSymbolResult<CommandResult> validate);
 
     /// <summary>
     /// Gets the <see cref="Command"/> created by the wrapper.

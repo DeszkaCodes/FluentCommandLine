@@ -1,4 +1,5 @@
 ﻿using System.CommandLine;
+using System.CommandLine.Parsing;
 
 namespace FluentCommandLine.Abstraction.Interfaces;
 
@@ -38,6 +39,10 @@ public partial interface IRootCommandCanSetProperties : ICommandBaseCanSetProper
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the new value.</returns>
     /// <inheritdoc cref="ICommandBaseCanSetProperties.DoTreatUnmatchedTokensAsErrors(bool)"/>
     new IRootCommandCanSetProperties DoTreatUnmatchedTokensAsErrors(bool treatUnmatchedTokensAsErrors);
+
+    /// <returns>An <see cref="IRootCommandCanSetProperties"/> with the added validator.</returns>
+    /// <inheritdoc cref="Command.AddValidator(ValidateSymbolResult{CommandResult})"/>
+    new IRootCommandCanSetProperties AddValidator(ValidateSymbolResult<CommandResult> validate);
 
     /// <summary>
     /// Gets the <see cref="RootCommand"/> created by the wrapper.

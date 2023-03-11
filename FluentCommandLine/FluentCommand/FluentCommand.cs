@@ -1,6 +1,7 @@
 ﻿using FluentCommandLine.Abstraction;
 using FluentCommandLine.Abstraction.Interfaces;
 using System.CommandLine;
+using System.CommandLine.Parsing;
 
 namespace FluentCommandLine;
 
@@ -75,6 +76,13 @@ public sealed partial class FluentCommand : FluentCommandBase<Command>,
     public override ICommandCanSetProperties SetHidden(bool isHidden)
     {
         base.SetHidden(isHidden);
+        return this;
+    }
+
+    /// <inheritdoc cref="ICommandCanSetProperties.AddValidator(ValidateSymbolResult{CommandResult})"/>
+    public override ICommandCanSetProperties AddValidator(ValidateSymbolResult<CommandResult> validate)
+    {
+        base.AddValidator(validate);
         return this;
     }
 

@@ -1,9 +1,7 @@
 ﻿using System.CommandLine;
+using System.CommandLine.Parsing;
 
 namespace FluentCommandLine.Abstraction.Interfaces;
-
-// TODO: Add AddValidator method
-// TODO: Add SetHandler methods
 
 /// <summary>
 /// Defines fluent methods responsible for setting the properties of a <see cref="Command"/>.
@@ -37,6 +35,10 @@ public partial interface ICommandBaseCanSetProperties : IIdentifierSymbolCanSetP
     /// <returns>An <see cref="ICommandBaseCanSetProperties"/> with the added <paramref name="command"/>.</returns>
     /// <inheritdoc cref="Command.AddCommand(Command)"/>
     ICommandBaseCanSetProperties AddCommand(Command command);
+
+    /// <returns>An <see cref="ICommandBaseCanSetProperties"/> with the added validator.</returns>
+    /// <inheritdoc cref="Command.AddValidator(ValidateSymbolResult{CommandResult})"/>
+    ICommandBaseCanSetProperties AddValidator(ValidateSymbolResult<CommandResult> validate);
 
     /// <summary>
     /// Sets a value that indicates whether unmatched tokens should be treated as errors. For example,

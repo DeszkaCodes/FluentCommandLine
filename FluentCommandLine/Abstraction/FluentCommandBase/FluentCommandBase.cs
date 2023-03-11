@@ -2,6 +2,8 @@
 using System.Collections;
 using System.CommandLine;
 using System.CommandLine.Completions;
+using System.CommandLine.Invocation;
+using System.CommandLine.Parsing;
 
 namespace FluentCommandLine.Abstraction;
 
@@ -21,17 +23,20 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
     /// <inheritdoc cref="Command.Children"/>
     public IEnumerable<Symbol> Children => _wrapped.Children;
 
-    /// <inheritdoc cref="IdentifierSymbol.Aliases" />
-    public IReadOnlyCollection<string> Aliases => _wrapped.Aliases;
-
     /// <inheritdoc cref="Command.Arguments"/>
     public IReadOnlyList<Argument> Arguments => _wrapped.Arguments;
+
+    /// <inheritdoc cref="IdentifierSymbol.Aliases" />
+    public IReadOnlyCollection<string> Aliases => _wrapped.Aliases;
 
     /// <inheritdoc cref="Command.Options"/>
     public IReadOnlyList<Option> Options => _wrapped.Options;
 
     /// <inheritdoc cref="Command.Subcommands"/>
     public IReadOnlyList<Command> Subcommands => _wrapped.Subcommands;
+
+    /// <inheritdoc cref="Command.Handler"/>
+    public ICommandHandler? Handler => _wrapped.Handler;
 
     /// <inheritdoc cref="Command.GetEnumerator"/>
     public IEnumerator GetEnumerator() => _wrapped.GetEnumerator();
@@ -105,7 +110,7 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
     /// <inheritdoc />
     public virtual ICommandBaseHasToSetName SetHandlerInvokeSelfHelp()
     {
-        Action callHelp = () => _wrapped.Invoke("--help");
+        void callHelp() => _wrapped.Invoke("--help");
 
         _wrapped.SetHandler(callHelp);
         return this;
@@ -115,6 +120,13 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
     public virtual ICommandBaseHasToSetName NoHandler()
     {
         _wrapped.Handler = null;
+        return this;
+    }
+
+    /// <inheritdoc />
+    public virtual ICommandBaseCanSetProperties AddValidator(ValidateSymbolResult<CommandResult> validate)
+    {
+        _wrapped.AddValidator(validate);
         return this;
     }
 }
