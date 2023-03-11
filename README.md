@@ -1,7 +1,6 @@
 # FluentCommandLine
 ![Contributors](https://img.shields.io/github/contributors/skydeszka/FluentCommandLine)
 ![GitHub issues](https://img.shields.io/github/issues/skydeszka/FluentCommandLine)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/skydeszka/FluentCommandLine/build-and-test.yml)
 ![GitHub](https://img.shields.io/github/license/skydeszka/FluentCommandLine)
 
 ## Description
@@ -10,6 +9,9 @@ This project came to be a small wrapper for Microsoft's `System.CommandLine` pac
 The project targets .NET 7.0 and is purely written in C#.
 
 The project is still **unfinished** so I'm unable to share much more information.
+
+## Contribution
+To contribute to the project please refer to our [contribution guide](CONTRIBUTING.md)
 
 ## Currently supported version
 `2.0.0-beta4.22272.1`
