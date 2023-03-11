@@ -9,7 +9,7 @@ namespace FluentCommandLine;
 /// Wrapper for <see cref="Option{T}"/> that uses fluent APIs.
 /// </summary>
 /// <typeparam name="T">The <see cref="Type"/> that the option's arguments are expected to be parsed as.</typeparam>
-public sealed class FluentOption<T> : FluentIdentifierSymbolBase,
+public sealed class FluentOption<T> : FluentIdentifierSymbolBase<Option>,
     IOptionHasToSetArgument<T>, IOptionHasToSetName<T>, IOptionCanSetProperties<T>
 {
     private readonly struct ConstructorData
@@ -62,9 +62,8 @@ public sealed class FluentOption<T> : FluentIdentifierSymbolBase,
 
     private ConstructorData _constructorData;
 
-    private Option<T> _option = null!;
-
     private FluentOption()
+        : base(null!)
     { }
 
     /// <summary>
@@ -74,7 +73,7 @@ public sealed class FluentOption<T> : FluentIdentifierSymbolBase,
     public static IOptionHasToSetArgument<T> Create() => new FluentOption<T>();
 
     /// <inheritdoc/>
-    public Option<T> GetOption() => _option;
+    public Option<T> GetOption() => (Option<T>)_wrapped;
 
     ///<inheritdoc />
     public IOptionHasToSetName<T> AddDefaultValue(Func<T> getDefaultValue)
@@ -106,70 +105,70 @@ public sealed class FluentOption<T> : FluentIdentifierSymbolBase,
     ///<inheritdoc />
     public IOptionCanSetProperties<T> SetAliases(string[] aliases)
     {
-        _option = _constructorData.Construct(aliases);
+        _wrapped = _constructorData.Construct(aliases);
         return this;
     }
 
     /// <inheritdoc />
     public override IOptionCanSetProperties<T> SetDescription(string description)
     {
-        _option.Description = description;
+        base.SetDescription(description);
         return this;
     }
 
     /// <inheritdoc />
     public override IOptionCanSetProperties<T> SetHidden(bool isHidden)
     {
-        _option.IsHidden = isHidden;
+        base.SetHidden(isHidden);
         return this;
     }
 
     /// <inheritdoc />
     public override IOptionCanSetProperties<T> AddAlias(string alias)
     {
-        _option.AddAlias(alias);
+        base.AddAlias(alias);
         return this;
     }
 
     /// <inheritdoc />
     public IOptionCanSetProperties<T> SetArity(ArgumentArity arity)
     {
-        _option.Arity = arity;
+        _wrapped.Arity = arity;
         return this;
     }
 
     /// <inheritdoc />
     public IOptionCanSetProperties<T> AddValidator(ValidateSymbolResult<OptionResult> validate)
     {
-        _option.AddValidator(validate);
+        _wrapped.AddValidator(validate);
         return this;
     }
 
     /// <inheritdoc />
     public IOptionCanSetProperties<T> SetDefaultValue(object? value)
     {
-        _option.SetDefaultValue(value);
+        _wrapped.SetDefaultValue(value);
         return this;
     }
 
     /// <inheritdoc />
     public IOptionCanSetProperties<T> SetDefaultValueFactory(Func<object?> getDefaultValue)
     {
-        _option.SetDefaultValueFactory(getDefaultValue);
+        _wrapped.SetDefaultValueFactory(getDefaultValue);
         return this;
     }
 
     /// <inheritdoc />
     public IOptionCanSetProperties<T> SetAllowMultipleArgumentsPerToken(bool allowMultipleArgumentsPerToken)
     {
-        _option.AllowMultipleArgumentsPerToken = allowMultipleArgumentsPerToken;
+        _wrapped.AllowMultipleArgumentsPerToken = allowMultipleArgumentsPerToken;
         return this;
     }
 
     /// <inheritdoc />
     public IOptionCanSetProperties<T> SetRequired(bool isRequired)
     {
-        _option.IsRequired = isRequired;
+        _wrapped.IsRequired = isRequired;
         return this;
     }
 }
