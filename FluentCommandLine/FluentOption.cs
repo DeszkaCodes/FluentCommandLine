@@ -70,7 +70,7 @@ public sealed class FluentOption<T> : FluentIdentifierSymbolBase<Option<T>>,
     /// <summary>
     /// Creates a new instance of <see cref="FluentOption{T}"/>.
     /// </summary>
-    /// <returns>The new instance as <see cref="IOptionHasToSetName{T}"/>.</returns>
+    /// <returns>The new instance as <see cref="IOptionHasToSetArgumen{T}"/>.</returns>
     public static IOptionHasToSetArgument<T> Create() => new FluentOption<T>();
 
     /// <inheritdoc/>
