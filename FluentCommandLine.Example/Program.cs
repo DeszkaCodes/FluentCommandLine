@@ -6,14 +6,15 @@ using FluentCommandLine;
 using System.CommandLine;
 
 Command aboutCommand = FluentCommand.Create()
+    .SetHandler(() => Console.WriteLine("Template text."))
     .SetName("about")
     .SetDescription("Sums up the package and its uses.")
-    .SetHandler(() => Console.WriteLine("Template text."))
     .GetCommand();
 
 RootCommand rootCommand = FluentRootCommand.Create()
-    .SetDescription("Showcase of the FluentCommandLine package")
     .SetHandlerInvokeSelfHelp()
+    .UseExecutableName()
+    .SetDescription("Showcase of the FluentCommandLine package")
     .AddCommand(aboutCommand)
     .GetRootCommand();
 
