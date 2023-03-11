@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentCommandLine", "FluentCommandLine\FluentCommandLine.csproj", "{628233D9-8D07-40A5-B05A-5A547C0D328F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentCommandLine.TestConsole", "FluentCommandLine.TestConsole\FluentCommandLine.TestConsole.csproj", "{E176C459-2E24-4BBD-BA79-540442D38DA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentCommandLine.Example", "FluentCommandLine.Example\FluentCommandLine.Example.csproj", "{E176C459-2E24-4BBD-BA79-540442D38DA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
