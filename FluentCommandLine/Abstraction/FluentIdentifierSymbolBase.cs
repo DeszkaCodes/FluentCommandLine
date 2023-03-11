@@ -3,11 +3,18 @@
 namespace FluentCommandLine.Abstraction;
 
 /// <summary>
-/// Defines a base for an <see cref="System.CommandLine.IdentifierSymbol"/> wrapper.
+/// Defines a base for an <see cref="IdentifierSymbol"/> wrapper.
 /// </summary>
-public abstract class FluentIdentifierSymbolBase : FluentSymbolBase,
+/// <typeparam name="T">The <see cref="Type"/> that inherits <see cref="IdentifierSymbol"/>.</typeparam>
+public abstract class FluentIdentifierSymbolBase<T> : FluentSymbolBase<T>,
     IIdentifierSymbolCanSetName, IIdentifierSymbolCanSetProperties
+    where T : IdentifierSymbol
 {
+    private protected FluentIdentifierSymbolBase(T identifierSymbol)
+        : base(identifierSymbol)
+    {
+    }
+
     /// <inheritdoc cref="IIdentifierSymbolCanSetName.SetName(string)"/>
     public override abstract IIdentifierSymbolCanSetProperties SetName(string name);
 
