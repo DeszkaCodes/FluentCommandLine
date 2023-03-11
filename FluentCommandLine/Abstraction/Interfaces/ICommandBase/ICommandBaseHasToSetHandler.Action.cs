@@ -4,10 +4,7 @@ using System.CommandLine;
 
 namespace FluentCommandLine.Abstraction.Interfaces;
 
-/// <summary>
-/// Defines fluent methods responsible for setting the properties of a <see cref="Command"/>.
-/// </summary>
-public partial interface ICommandBaseCanSetProperties : IIdentifierSymbolCanSetProperties
+public partial interface ICommandBaseHasToSetHandler
 {
     /// <returns>An <see cref="ICommandBaseCanSetProperties"/> with the new handler.</returns>
     /// <inheritdoc cref="Handler.SetHandler(Command, Action{InvocationContext})"/>
