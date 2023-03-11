@@ -10,4 +10,10 @@ public partial interface ICommandBaseHasToSetHandler
     /// </summary>
     /// <returns>An <see cref="ICommandBaseCanSetProperties"/> with no handler.</returns>
     ICommandBaseCanSetProperties NoHandler();
+
+    /// <summary>
+    /// Sets the handler of the command to invoke the <c>--help</c> switch.
+    /// </summary>
+    /// <returns>An <see cref="ICommandBaseCanSetProperties"/> with the new handler.</returns>
+    ICommandBaseCanSetProperties SetHandlerInvokeSelfHelp();
 }

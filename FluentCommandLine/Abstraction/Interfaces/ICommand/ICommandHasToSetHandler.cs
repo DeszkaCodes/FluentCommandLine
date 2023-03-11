@@ -8,4 +8,8 @@ public partial interface ICommandHasToSetHandler : ICommandBaseHasToSetHandler
     /// <returns>An <see cref="IRootCommandCanSetProperties"/> with no handler.</returns>
     /// <inheritdoc cref="ICommandBaseHasToSetHandler.NoHandler()"/>
     new ICommandCanSetProperties NoHandler();
+
+    /// <returns>An <see cref="ICommandCanSetProperties"/> with the new handler.</returns>
+    /// <inheritdoc cref="ICommandBaseHasToSetHandler.SetHandlerInvokeSelfHelp()" />
+    new ICommandCanSetProperties SetHandlerInvokeSelfHelp();
 }

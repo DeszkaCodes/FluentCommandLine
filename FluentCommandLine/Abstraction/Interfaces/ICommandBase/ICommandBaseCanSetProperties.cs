@@ -39,12 +39,6 @@ public partial interface ICommandBaseCanSetProperties : IIdentifierSymbolCanSetP
     ICommandBaseCanSetProperties AddCommand(Command command);
 
     /// <summary>
-    /// Sets the handler of the command to invoke the <c>--help</c> switch.
-    /// </summary>
-    /// <returns>An <see cref="ICommandBaseCanSetProperties"/> with the new handler.</returns>
-    ICommandBaseCanSetProperties SetHandlerInvokeSelfHelp();
-
-    /// <summary>
     /// Sets a value that indicates whether unmatched tokens should be treated as errors. For example,
     /// if set to <see langword="true"/> and an extra command or argument is provided, validation will fail.
     /// </summary>
