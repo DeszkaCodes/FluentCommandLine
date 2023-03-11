@@ -1,7 +1,7 @@
 ﻿using FluentCommandLine.Abstraction.Interfaces;
-using System.CommandLine.Completions;
 using System.Collections;
 using System.CommandLine;
+using System.CommandLine.Completions;
 
 namespace FluentCommandLine.Abstraction;
 
@@ -14,7 +14,7 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
     where T : Command
 {
     private protected FluentCommandBase(T command)
-        :base(command)
+        : base(command)
     {
     }
 
@@ -47,7 +47,7 @@ public abstract partial class FluentCommandBase<T> : FluentIdentifierSymbolBase<
     }
 
     /// <inheritdoc cref="ICommandBaseCanSetProperties.SetDescription(string)"/>
-    public override  ICommandBaseCanSetProperties SetDescription(string description)
+    public override ICommandBaseCanSetProperties SetDescription(string description)
     {
         base.SetDescription(description);
         return this;

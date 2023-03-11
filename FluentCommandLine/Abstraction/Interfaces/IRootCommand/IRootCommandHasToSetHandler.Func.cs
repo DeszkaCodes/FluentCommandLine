@@ -1,5 +1,5 @@
-﻿using System.CommandLine.Invocation;
-using System.CommandLine.Binding;
+﻿using System.CommandLine.Binding;
+using System.CommandLine.Invocation;
 
 namespace FluentCommandLine.Abstraction.Interfaces;
 

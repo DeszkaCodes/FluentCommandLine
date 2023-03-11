@@ -4,7 +4,6 @@
 
 using FluentCommandLine;
 using System.CommandLine;
-using System.CommandLine.Invocation;
 
 Option<bool> showLicenseOption = FluentOption<bool>.Create()
     .HasNoArgument()
