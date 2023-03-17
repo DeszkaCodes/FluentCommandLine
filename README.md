@@ -4,6 +4,9 @@
 ![GitHub](https://img.shields.io/github/license/skydeszka/FluentCommandLine)
 
 ## Description
+
+**This project has been merged with another `System.CommandLine` project.**
+
 This project came to be a small wrapper for Microsoft's `System.CommandLine` package which is still in preview. The project uses **fluent-APIs*** to make interacting with the command line more readable.
 
 The project targets .NET 7.0 and is purely written in C#.
